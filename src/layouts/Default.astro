@@ -1,0 +1,28 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html class="dark-mode scroll-smooth" lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+
+  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+    <div class="min-h-screen">
+      <Header />
+      <main class="container mx-auto mt-10 mb-10 px-10">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script
+      is:inline
+      src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
+      defer></script>
+  </body>
+</html>

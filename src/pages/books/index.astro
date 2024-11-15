@@ -1,0 +1,27 @@
+---
+import Default from "../../layouts/Default.astro";
+import ListBooks from "../../components/books/ListBooks.astro";
+import Title from "../../components/commons/Title.astro";
+---
+
+<Default>
+  <Title title="Mes livres" icon="mdi:book-open-page-variant" />
+  <p class="text-sm mb-2">
+    Ici, je partage avec vous les livres que j'ai écrits, des ouvrages qui
+    reflètent mes réflexions, mes expériences, et mes passions. Certains sont
+    déjà publiés, d'autres sont en cours d'écriture et sortiront bientôt.
+  </p>
+  <p class="text-sm mb-2">
+    De l'innovation managériale à la gestion des équipes autonomes, chaque livre
+    est une plongée dans un sujet qui me tient à cœur, une occasion de
+    transmettre ce que j'ai appris et de susciter la réflexion.
+  </p>
+  <p class="text-sm mb-2">
+    Que vous soyez à la recherche d'inspiration, d'idées nouvelles ou simplement
+    curieux, n'hésitez pas à plonger dans ces publications.
+  </p>
+
+  <hr class="my-4 border-gray-800" />
+
+  <ListBooks />
+</Default>

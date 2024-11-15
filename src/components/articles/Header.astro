@@ -1,0 +1,40 @@
+---
+import FormattedDate from "../../components/FormattedDate.astro";
+interface Props {
+  publicationDate: Date;
+  updatedDate?: Date;
+  category?: string;
+  tags?: string[];
+}
+
+const { publicationDate, updatedDate, category, tags } = Astro.props;
+---
+
+<div class="text-gray-300 text-sm">
+  <div>
+    Publié le <span class="font-bold"
+      ><FormattedDate date={publicationDate} /></span
+    > dans la catégorie <span class="font-bold">{category}</span>
+  </div>
+  {
+    updatedDate && (
+      <div>
+        Dernière mise à jour le <FormattedDate date={updatedDate} />
+      </div>
+    )
+  }
+
+  {
+    tags && (
+      <div>
+        Tags :
+        {tags.map((tag) => (
+          <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )
+  }
+  <slot />
+</div>

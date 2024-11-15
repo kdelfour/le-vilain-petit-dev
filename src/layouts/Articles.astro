@@ -1,0 +1,80 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type { MarkdownHeading } from "astro";
+
+import Default from "../layouts/Default.astro";
+import TableOfContents from "../components/articles/TableOfContents.astro";
+import Header from "../components/articles/Header.astro";
+import Footer from "../components/articles/Footer.astro";
+import Breadcrumb from "../components/commons/Breadcrumb.astro";
+
+type Props = CollectionEntry<"articles">["data"] & {
+  headings: MarkdownHeading[];
+};
+
+const {
+  title,
+  pubDate,
+  updatedDate,
+  cover,
+  headings,
+  category,
+  tags,
+  description,
+} = Astro.props;
+
+const coverUrl = import.meta.env.BASE_URL + "articles/" + cover + "_cover.webp";
+---
+
+<Default>
+  <Breadcrumb />
+
+  <main>
+    <article>
+      <div class="flex flex-col md:flex-row mt-5">
+        <div class="w-full md:w-3/4 pr-5">
+          <div
+            class="w-full bg-center bg-cover"
+            style={"background-image: url('" + coverUrl + "'); height: 600px;"}
+          >
+            <div
+              class="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50 py-12"
+            >
+              <div class="text-center">
+                <div class="container px-4 mx-auto">
+                  <div class="max-w-4xl mx-auto text-center">
+                    <h2
+                      class="mt-8 mb-6 text-4xl lg:text-5xl font-bold text-gray-100"
+                    >
+                      {title}
+                    </h2>
+                    <p class="max-w-3xl mx-auto mb-10 text-lg text-gray-300">
+                      {description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Header
+            updatedDate={updatedDate}
+            publicationDate={pubDate}
+            category={category}
+            tags={tags}
+          />
+
+          <slot />
+
+          <Footer />
+        </div>
+
+        <div class="w-full md:w-1/4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          <div class="md:sticky top-5 hidden md:block">
+            <TableOfContents headings={headings} />
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+</Default>

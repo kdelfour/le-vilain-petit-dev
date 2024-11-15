@@ -1,0 +1,79 @@
+---
+import PagefindSearch from "astro-pagefind/components/Search";
+---
+
+<PagefindSearch
+  id="search"
+  className="pagefind-ui"
+  uiOptions={{
+    showSubResults: false,
+    showEmptyFilters: true,
+    translations: {
+      placeholder: "Rechercher un article",
+      clear_search: "Effacer",
+      load_more: "Afficher plus de résultats",
+      search_label: "Rechercher sur ce site",
+      filters_label: "Filtres",
+      zero_results: "Aucun résultat pour [SEARCH_TERM]",
+      many_results: "[COUNT] résultats pour [SEARCH_TERM]",
+      one_result: "[COUNT] résultat pour [SEARCH_TERM]",
+      alt_search:
+        "Aucun résultat pour [SEARCH_TERM]. Affichage des résultats pour [DIFFERENT_TERM] à la place",
+      search_suggestion:
+        "Aucun résultat pour [SEARCH_TERM]. Essayez une des recherches suivantes :",
+      searching: "Recherche en cours pour [SEARCH_TERM]...",
+    },
+  }}
+/>
+
+<style is:global>
+  :root {
+    --pagefind-ui-scale: 0.8;
+    --pagefind-ui-primary: #152028;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-message-text: #eeeeee;
+    --pagefind-ui-result-title-text: #eeeeee;
+    --pagefind-ui-result-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-input-background: #eeeeee;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+    --pagefind-ui-border-width: 2px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: sans-serif;
+    --pagefind-button-background: var(--pagefind-input-background);
+    --pagefind-button-color: var(--pagefind-ui-message-text);
+  }
+  #search .pagefind-ui__search-input,
+  #search .pagefind-ui__search-clear {
+    background-color: var(--pagefind-input-background);
+    color: var(--pagefind-ui-primary);
+  }
+  #search .pagefind-ui__result-title,
+  #search .pagefind-ui__result-link {
+    display: inline-block;
+    font-weight: 700;
+    font-size: calc(40px * var(--pagefind-ui-scale));
+    color: var(--pagefind-ui-result-title-text);
+  }
+  #search .pagefind-ui__result-excerpt {
+    color: var(--pagefind-ui-result-text);
+    font-weight: 400;
+    font-size: calc(1.5rem * var(--pagefind-ui-scale));
+  }
+  #search .pagefind-ui__message {
+    color: var(--pagefind-ui-message-text);
+    margin: calc(0.5rem * var(--pagefind-ui-scale)) 0
+      calc(1.5rem * var(--pagefind-ui-scale))
+      calc(0.5rem * var(--pagefind-ui-scale));
+  }
+  #search .pagefind-ui__button {
+    color: var(--pagefind-button-color);
+    background: var(--pagefind-button-background);
+  }
+  #search .pagefind-ui__result-thumb {
+    display: none;
+  }
+</style>

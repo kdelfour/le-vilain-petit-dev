@@ -1,0 +1,38 @@
+---
+import type { MarkdownHeading } from "astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+import Prose from "../../components/Prose.astro";
+import Articles from "../../layouts/Articles.astro";
+import Title from "../../components/commons/Title.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("articles");
+
+  const headings = await Promise.all(
+    posts.map(async (post) => {
+      const data = await post.render();
+      return data.headings;
+    })
+  );
+
+  return posts.map((post, index) => ({
+    params: { slug: post.slug },
+    props: { post, headings: headings[index] },
+  }));
+}
+
+type Props = {
+  post: CollectionEntry<"articles">;
+  headings: MarkdownHeading[];
+};
+
+const { post, headings } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Articles {...post.data} headings={headings}>
+  <Title title={post.data.title} icon="mdi:file-edit-outline" />
+  <Prose>
+    <Content />
+  </Prose>
+</Articles>

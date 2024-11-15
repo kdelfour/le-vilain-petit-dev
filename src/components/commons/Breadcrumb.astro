@@ -1,0 +1,26 @@
+---
+import { Breadcrumbs } from "astro-breadcrumbs";
+---
+
+<Breadcrumbs indexText="Accueil" mainBemClass="breadcrumbs" />
+
+<style is:global>
+  .breadcrumbs {
+    margin-bottom: 1rem;
+  }
+  .breadcrumbs li {
+    display: inline-block;
+    margin-right: 10px;
+    text-transform: capitalize;
+    color: theme("colors.gray.500");
+  }
+  .breadcrumbs li::after {
+    content: ">";
+    margin-left: 10px;
+    font-weight: bold;
+    color: theme("colors.orange.500");
+  }
+  .breadcrumbs li:last-child::after {
+    content: "";
+  }
+</style>
