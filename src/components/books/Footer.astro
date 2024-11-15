@@ -1,0 +1,21 @@
+---
+import { AUTHOR, AUTHOR_JOB_TITLE } from "../../consts";
+import { Image } from "astro:assets";
+import avatar from "../../assets/images/avatar.webp";
+---
+
+<section
+  class="bg-white px-4 py-4 antialiased dark:bg-gray-800 rounded-lg flex flex-row gap-4"
+>
+  <Image
+    class="w-32 h-32 rounded-full shadow hover:shadow-lg"
+    src={avatar}
+    alt="Rounded avatar"
+  />
+  <div>
+    <div>Livre écrit par <span class="font-bold">{AUTHOR}</span></div>
+    <div class="text-gray-300 text-sm">
+      {AUTHOR_JOB_TITLE}
+    </div>
+  </div>
+</section>

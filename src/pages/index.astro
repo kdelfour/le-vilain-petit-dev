@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+
+import Default from "../layouts/Default.astro";
+import ListArticles from "../components/articles/ListArticles.astro";
+import ListBooks from "../components/books/ListBooks.astro";
+
+import imgBanner from "../assets/images/banner.webp";
+import imgTopBannerMobile from "../assets/images/mobile-banner-1.webp";
+import imgBottomBannerMobile from "../assets/images/mobile-banner-2.webp";
+
+import Title from "../components/commons/Title.astro";
+import SubTitle from "../components/commons/SubTitle.astro";
+---
+
+<Default>
+  <div class="hidden sm:block">
+    <Image src={imgBanner} alt="Banner" class="w-full h-auto rounded-lg" />
+  </div>
+  <div class="block sm:hidden m-0 p-0">
+    <Image src={imgTopBannerMobile} alt="Banner" class="w-full h-auto" />
+    <Image src={imgBottomBannerMobile} alt="Banner" class="w-full h-auto" />
+  </div>
+  <Title title="Bienvenue !" icon="mdi:chevron-triple-right" />
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+      <p>
+        Ce projet est né de mon envie constante de bousculer les idées
+        préconçues et de sortir des chemins tout tracés, de refuser la
+        conformité au profit de la créativité et de l'audace. Je crois fermement
+        que les meilleures solutions naissent lorsque l'on ose remettre en
+        question les normes, prendre des risques pour explorer de nouvelles
+        perspectives, et proposer des idées qui ne correspondent pas
+        nécessairement aux critères classiques de notre société. C'est en
+        sortant de notre zone de confort et en réinventant notre façon de penser
+        que nous pouvons apporter de vraies innovations.
+      </p>
+    </div>
+
+    <div>
+      <SubTitle title="Un espace de réflexion et de partage" />
+      <p>
+        Vous êtes dans un espace de réflexion où la technologie rencontre la
+        gestion humaine, le management, l'holacratie, et l'idée d'une entreprise
+        libérée. Un espace qui valorise l'autonomie, la transparence, et la
+        responsabilité partagée. Ici, nous explorons comment la technologie peut
+        s'intégrer harmonieusement avec des pratiques de gestion modernes, tout
+        en favorisant une culture d'innovation, de collaboration, et de respect
+        de l'humain.
+      </p>
+    </div>
+
+    <div>
+      <SubTitle title="Plus qu'un blog tech" />
+      <p>
+        Bien sûr, je suis passionné de technologie, mais je suis également animé
+        par ces nouveaux modèles d'organisation qui dépassent le cadre
+        traditionnel. Je souhaite échanger des perspectives, partager des
+        concepts, et démontrer que les seules limites que nous devrions
+        connaître sont celles de notre imagination. Le reste est à notre portée,
+        tout est faisable.
+      </p>
+    </div>
+
+    <div>
+      <SubTitle title="Une invitation à l'audace" />
+      <p>
+        Ce blog est une invitation à sortir des sentiers battus, que ce soit
+        dans la tech ou au-delà, pour créer, innover, et transformer nos idées
+        en actions concrètes. Plongeons ensemble dans cet univers fascinant où
+        chaque idée compte, et où tout devient possible si l'on ose imaginer.
+      </p>
+    </div>
+  </div>
+
+  <Title title="Mes derniers articles" icon="mdi:chevron-triple-right" />
+  <ListArticles slice="3" />
+
+  <Title title="Mes livres" icon="mdi:chevron-triple-right" />
+  <ListBooks slice="3" />
+
+  <!-- 
+  <Title title="Mes dernieres conférences" icon="mdi:chevron-triple-right" />
+  <div>TODO</div>
+   -->
+</Default>

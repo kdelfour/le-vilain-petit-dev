@@ -1,0 +1,39 @@
+---
+import Default from "../../layouts/Default.astro";
+import ListArticles from "../../components/articles/ListArticles.astro";
+import Title from "../../components/commons/Title.astro";
+---
+
+<Default>
+  <Title title="Mes articles" icon="mdi:book-open-page-variant" />
+  <p class="text-sm mb-2">
+    Ici, vous trouverez une belle collection de pensées, d'astuces, de
+    réflexions et parfois de coups de gueule sur tout ce qui touche à la tech,
+    au management... bref, vous l'aurez compris, c'est un peu tout ce que je
+    peux me permettre de partager avec vous.
+  </p>
+  <p class="text-sm mb-2">
+    Alors, prenez un café, installez-vous confortablement, et laissez-vous
+    embarquer dans mes pensées, un article à la fois.
+  </p>
+  <p class="text-sm mb-2">
+    <b class="text-orange-500">Spoiler :</b> certains contiennent de l'humour, d'autres
+    des débats sérieux, mais tous sont là pour vous inspirer et vous faire réfléchir
+    !
+  </p>
+  <hr class="my-4 border-gray-800" />
+
+  <ListArticles />
+
+  <hr class="my-4 border-gray-800" />
+
+  <p class="text-sm mb-2 text-gray-500">
+    Ces articles sont là pour être partagés, discutés et diffusés tant que cela
+    reste à but non lucratif. Vous êtes donc libres de les utiliser, de les
+    commenter, et de les transmettre, à condition de toujours citer l'auteur
+    (moi, Kevin Delfour) et de respecter l'esprit de partage.
+    <br />
+    Après tout, la connaissance, c'est fait pour circuler, pas pour être mise en
+    boîte !
+  </p>
+</Default>

@@ -1,0 +1,105 @@
+---
+import {
+  AUTHOR_DISCORD,
+  AUTHOR_GITHUB,
+  AUTHOR_LINKEDIN,
+  SITE_ICON,
+  SITE_TITLE,
+} from "../consts";
+import { Icon } from "astro-icon/components";
+
+const today = new Date();
+const linkStyle =
+  "text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 lg:px-5 py-1 lg:py-2.5 mr-1 lg:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800";
+---
+
+<footer class="p-4 bg-white sm:p-6 dark:bg-gray-800 sticky top-[100vh]">
+  <div class="mx-auto max-w-screen-xl">
+    <div class="md:flex md:justify-between">
+      <div class="mb-6 md:mb-0">
+        <a href={import.meta.env.BASE_URL + "/"} class="flex items-center">
+          <Icon class="text-2xl mr-3 text-orange-500" name={SITE_ICON} />
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+            >{SITE_TITLE}</span
+          >
+        </a>
+      </div>
+
+      <div class="flex items-center lg:order-2">
+        <a href={import.meta.env.BASE_URL} class={linkStyle}>
+          <Icon name="mdi:home" class="inline mr-2" />
+          <span class="hidden sm:inline">Accueil</span>
+        </a>
+        <span class="mx-2 text-orange-500">|</span>
+        <a href={import.meta.env.BASE_URL + "articles"} class={linkStyle}>
+          Articles
+        </a>
+        <span class="mx-2 text-orange-500">|</span>
+        <a href={import.meta.env.BASE_URL + "books"} class={linkStyle}>
+          Livres
+        </a>
+        <span class="mx-2 text-orange-500">|</span>
+        <a href={import.meta.env.BASE_URL + "about"} class={linkStyle}>
+          <Icon name="mdi:duck" class="inline mr-2" />
+          <span class="hidden sm:inline">A propos</span>
+        </a>
+        <span class="mx-2 text-orange-500">|</span>
+        <a href={import.meta.env.BASE_URL + "search"} class={linkStyle}>
+          <Icon name="mdi:search" class="inline mr-2" />
+          <span class="hidden sm:inline">Recherche</span>
+        </a>
+        <span class="mx-2 text-orange-500">|</span>
+        <a href="/rss.xml" class={linkStyle}>
+          <Icon name="mdi:rss" class="inline mr-2" />
+          <span class="hidden sm:inline">RSS</span>
+        </a>
+      </div>
+    </div>
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <div class="flex my-4 space-x-6 sm:justify-center sm:mt-0">
+        <span class="text-xs text-gray-500">Suivez moi sur :</span>
+        <a
+          href={AUTHOR_LINKEDIN}
+          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+        >
+          <Icon name="mdi:linkedin" class="w-5 h-5" />
+        </a>
+        <a
+          href={AUTHOR_GITHUB}
+          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+        >
+          <Icon name="mdi:github" class="w-5 h-5" />
+        </a>
+        <a
+          href={AUTHOR_DISCORD}
+          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+        >
+          <Icon name="mdi:discord" class="w-5 h-5" />
+        </a>
+        <a
+          href="/rss.xml"
+          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+        >
+          <Icon name="mdi:rss" class="w-5 h-5" />
+        </a>
+      </div>
+
+      <div id="wcb" class="carbonbadge"></div>
+
+      <span class="text-xs text-gray-500 sm:text-center dark:text-gray-400 mt-5"
+        >&copy; {today.getFullYear()}
+        <a href="/" class="hover:underline">{SITE_TITLE}</a>. All Rights
+        Reserved.
+      </span>
+    </div>
+  </div>
+</footer>
+<style>
+  #wcb.carbonbadge {
+    --b1: theme("colors.orange.500");
+    --b2: theme("colors.orange.500");
+    font-size: theme("fontSize.xs");
+  }
+
+</style>
