@@ -1,6 +1,12 @@
 ---
 import Prose from "../components/Prose.astro";
 import Default from "../layouts/Default.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import ListArticles from "../components/blog/ListArticles.astro";
+const posts = (await getCollection("articles"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
 ---
 
 <Default>
@@ -12,121 +18,68 @@ import Default from "../layouts/Default.astro";
       illorum;
     </h1>
 
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui haec
-      patefactio quasi rerum opertarum, cum quid quidque sit aperitur, definitio
-      est. <a href="http://loripsum.net/" target="_blank"
-        >Cur igitur, inquam, res tam dissimiles eodem nomine appellas?</a
-      > Magni enim aestimabat pecuniam non modo non contra leges, sed etiam legibus
-      partam. Similiter sensus, cum accessit ad naturam, tuetur illam quidem, sed
-      etiam se tuetur; <code>Paria sunt igitur.</code>
-      <code>Duo Reges: constructio interrete.</code> Atque his de rebus et splendida
-      est eorum et illustris oratio. <a
-        href="http://loripsum.net/"
-        target="_blank">Falli igitur possumus.</a
-      >
-    </p>
-
-    <pre>Quoniamque non dubium est quin in iis, quae media dicimus,
-sit aliud sumendum, aliud reiciendum, quicquid ita fit aut
-dicitur, omne officio continetur.
-
-Et quidem illud ipsum non nimium probo et tantum patior,
-philosophum loqui de cupiditatibus finiendis.
-</pre>
-
-    <dl>
-      <dt><dfn>Sed videbimus.</dfn></dt>
-      <dd>
-        Dicam, inquam, et quidem discendi causa magis, quam quo te aut Epicurum
-        reprehensum velim.
-      </dd>
-      <dt><dfn>Sed nimis multa.</dfn></dt>
-      <dd>
-        Septem autem illi non suo, sed populorum suffragio omnium nominati sunt.
-      </dd>
-      <dt><dfn>Bork</dfn></dt>
-      <dd>Simus igitur contenti his.</dd>
-      <dt><dfn>Nihil sane.</dfn></dt>
-      <dd>Non ego tecum iam ita iocabor, ut isdem his de rebus, cum L.</dd>
-    </dl>
-
-    <blockquote cite="http://loripsum.net">
-      Num igitur dubium est, quin, si in re ipsa nihil peccatur a superioribus,
-      verbis illi commodius utantur?
-    </blockquote>
-
-    <p>
-      <a href="http://loripsum.net/" target="_blank"
-        >Quaerimus enim finem bonorum.</a
-      >
-      <b>Huius ego nunc auctoritatem sequens idem faciam.</b>
-      <a href="http://loripsum.net/" target="_blank"
-        >Non est igitur summum malum dolor.</a
-      > De quibus cupio scire quid sentias. Num igitur utiliorem tibi hunc Triarium
-      putas esse posse, quam si tua sint Puteolis granaria? <a
-        href="http://loripsum.net/"
-        target="_blank">Eadem nunc mea adversum te oratio est.</a
-      >
-    </p>
-
-    <p>
-      Si verbum sequimur, primum longius verbum praepositum quam bonum. Immo
-      istud quidem, inquam, quo loco quidque, nisi iniquum postulo, arbitratu
-      meo. Est igitur officium eius generis, quod nec in bonis ponatur nec in
-      contrariis. <i>Cave putes quicquam esse verius.</i>
-      <a href="http://loripsum.net/" target="_blank">Sed ego in hoc resisto;</a>
-      Ut optime, secundum naturam affectum esse possit. Honestum igitur id intellegimus,
-      quod tale est, ut detracta omni utilitate sine ullis praemiis fructibusve per
-      se ipsum possit iure laudari. Duarum enim vitarum nobis erunt instituta capienda.
-      Quid ergo attinet dicere: Nihil haberem, quod reprehenderem, si finitas cupiditates
-      haberent?
-    </p>
-
-    <ul>
-      <li>
-        Tum Piso: Atqui, Cicero, inquit, ista studia, si ad imitandos summos
-        viros spectant, ingeniosorum sunt;
-      </li>
-      <li>
-        Quare obscurentur etiam haec, quae secundum naturam esse dicimus, in
-        vita beata;
-      </li>
-      <li>Animum autem reliquis rebus ita perfecit, ut corpus;</li>
-      <li>Primum in nostrane potestate est, quid meminerimus?</li>
-    </ul>
-
-    <ol>
-      <li>Haec et tu ita posuisti, et verba vestra sunt.</li>
-      <li>
-        Praetereo multos, in bis doctum hominem et suavem, Hieronymum, quem iam
-        cur Peripateticum appellem nescio.
-      </li>
-      <li>
-        Nec vero sum nescius esse utilitatem in historia, non modo voluptatem.
-      </li>
-    </ol>
-
-    <p>
-      Ille igitur vidit, non modo quot fuissent adhuc philosophorum de summo
-      bono, sed quot omnino esse possent sententiae. Commoda autem et incommoda
-      in eo genere sunt, quae praeposita et reiecta diximus; Nam Metrodorum non
-      puto ipsum professum, sed, cum appellaretur ab Epicuro, repudiare tantum
-      beneficium noluisse; <i>Quippe: habes enim a rhetoribus;</i>
-    </p>
-
-    <p>
-      Quid enim ab antiquis ex eo genere, quod ad disserendum valet,
-      praetermissum est? Octavio fuit, cum illam severitatem in eo filio
-      adhibuit, quem in adoptionem D. Perge porro; Sed quanta sit alias, nunc
-      tantum possitne esse tanta. <mark>Quae sequuntur igitur?</mark> At quanta conantur!
-      Mundum hunc omnem oppidum esse nostrum! Incendi igitur eos, qui audiunt, vides.
-      Nec vero pietas adversus deos nec quanta iis gratia debeatur sine explicatione
-      naturae intellegi potest. At, illa, ut vobis placet, partem quandam tuetur,
-      reliquam deserit. Ut proverbia non nulla veriora sint quam vestra dogmata.
-      Perturbationes autem nulla naturae vi commoventur, omniaque ea sunt opiniones
-      ac iudicia levitatis. <mark>Non semper, inquam;</mark>
-      <i>Hic ambiguo ludimur.</i>
-    </p>
+    <ListArticles slice="3" />
   </Prose>
 </Default>
+
+<style>
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    width: calc(50% - 1rem);
+  }
+  ul li * {
+    text-decoration: none;
+    transition: 0.2s ease;
+  }
+  ul li:first-child {
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  ul li:first-child img {
+    width: 100%;
+  }
+  ul li:first-child h4 {
+    font-size: 2.369rem;
+    margin: 0;
+  }
+  ul li:first-child p {
+    text-align: center;
+  }
+  ul li img {
+    margin-bottom: 0.5rem;
+    border-radius: 12px;
+  }
+  ul li a {
+    display: block;
+  }
+  ul li a:hover h4,
+  ul li a:hover .date {
+    color: rgb(var(--accent));
+  }
+  ul a:hover img {
+    box-shadow: var(--box-shadow);
+  }
+  @media (max-width: 720px) {
+    ul {
+      gap: 0.5em;
+    }
+    ul li {
+      width: 100%;
+      text-align: center;
+    }
+    ul li:first-child {
+      margin-bottom: 0;
+    }
+    ul li:first-child .title {
+      font-size: 1.563em;
+    }
+  }
+</style>
