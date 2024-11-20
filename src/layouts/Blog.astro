@@ -2,27 +2,24 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import type { MarkdownHeading } from "astro";
+
 import Default from "../layouts/Default.astro";
 import TableOfContents from "../components/blog/TableOfContents.astro";
 import Header from "../components/blog/Header.astro";
 import Footer from "../components/blog/Footer.astro";
+import Breadcrumb from "../components/blog/Breadcrumb.astro";
 
 type Props = CollectionEntry<"articles">["data"] & {
   headings: MarkdownHeading[];
 };
 
-const {
-  title,
-  pubDate,
-  updatedDate,
-  heroImage,
-  headings,
-  category,
-  tags,
-} = Astro.props;
+const { title, pubDate, updatedDate, heroImage, headings, category, tags } =
+  Astro.props;
 ---
 
 <Default>
+  <Breadcrumb />
+
   <main>
     <article>
       {

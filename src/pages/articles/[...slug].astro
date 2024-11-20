@@ -4,6 +4,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
 import Blog from "../../layouts/Blog.astro";
 
+
 export async function getStaticPaths() {
   const posts = await getCollection("articles");
 
