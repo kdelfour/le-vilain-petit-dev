@@ -1,14 +1,8 @@
 ---
-import { getCollection } from "astro:content";
 import Default from "../../layouts/Default.astro";
-import FormattedDate from "../../components/FormattedDate.astro";
 import ListArticles from "../../components/blog/ListArticles.astro";
-
-const posts = (await getCollection("articles")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
 ---
 
 <Default>
-  <ListArticles/>
+  <ListArticles />
 </Default>
