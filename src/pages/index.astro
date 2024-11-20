@@ -1,20 +1,46 @@
 ---
+import { Image } from "astro:assets";
+
 import Prose from "../components/Prose.astro";
 import Default from "../layouts/Default.astro";
 import ListArticles from "../components/blog/ListArticles.astro";
+
+import imgBanner from "../assets/images/banner.svg";
+import imgArticle from "../assets/images/last-article.svg";
 ---
 
 <Default>
-  <Prose>
-    <h1>🧑‍🚀 Hello!</h1>
+  <Image src={imgBanner} alt="Banner" class="w-full h-auto rounded-lg" />
+  <span class="text-3xl font-bold text-orange-500">>>> Bienvenue !</span>
+  <div class="mt-5 grid grid-cols-2 gap-4">
+    <p>
+      Ce projet est né de mon envie constante de bousculer les idées préconçues et
+      de sortir des chemins tout tracés. Je crois fermement que les meilleures
+      solutions naissent quand on ose remettre en question les normes et proposer
+      des idées qui ne correspondent pas nécessairement aux critères classiques de
+      notre société.
+    </p>
+    <p>
+      Vous êtes dans mon espace de réflexion où la technologie rencontre la gestion
+      humaine, le management, l'holacratie et l'idée d'une entreprise libérée.
+    </p>
+    <p>
+      Bien sûr, je suis passionné de tech, mais je suis également animé par ces
+      nouveaux modèles d'organisation qui dépassent le cadre traditionnel. Je veux
+      échanger des perspectives, partager des concepts, et démontrer que les
+      seules limites que nous devrions connaître sont celles de notre imagination.
+      Le reste est à notre portée, tout est faisable.
+    </p>
+    <p>
+      Ce blog est donc une invitation à sortir des sentiers battus, que ce soit
+      dans la tech ou au-delà, pour créer, innover, et transformer nos idées en
+      actions concrètes. Plongeons ensemble dans cet univers fascinant où chaque
+      idée compte, et où tout devient possible si l'on ose imaginer.
+    </p>
+  </div>
 
-    <h1>
-      Stoici autem, quod finem bonorum in una virtute ponunt, similes sunt
-      illorum;
-    </h1>
-
-    <ListArticles slice="3" />
-  </Prose>
+  <h1 class="text-3xl font-bold my-5 text-orange-500">>>> Les derniers articles</h1>
+  <ListArticles slice="3" />
 </Default>
 
 <style>
