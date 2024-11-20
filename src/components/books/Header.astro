@@ -1,0 +1,27 @@
+---
+import FormattedDate from "../../components/FormattedDate.astro";
+interface Props {
+  pubDate: Date;
+  isbn: string;
+  link: string;
+}
+
+const { pubDate, isbn, link } = Astro.props;
+---
+
+<div class="text-gray-300 text-sm">
+  <div>
+    Publié le : <span class="font-bold"><FormattedDate date={pubDate} /></span>
+  </div>
+
+  <div class="mt-2">
+    N° ISBN : <span class="font-bold">{isbn}</span>
+  </div>
+
+  <div class="mx-auto p-5 mt-2 w-full bg-gray-100 dark:bg-gray-800 rounded-lg">
+    Vous souhaitez lire ce livre? <br />
+    Suivez ce <a href={link} class="font-bold text-blue-500 font-bold"> lien</a>
+  </div>
+
+  <slot />
+</div>

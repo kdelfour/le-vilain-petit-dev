@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import type { MarkdownHeading } from "astro";
+
+import Default from "../layouts/Default.astro";
+import Header from "../components/books/Header.astro";
+import Footer from "../components/books/Footer.astro";
+import Breadcrumb from "../components/commons/Breadcrumb.astro";
+
+type Props = CollectionEntry<"books">["data"] & {
+  headings: MarkdownHeading[];
+};
+
+const { title, pubDate, cover, isbn, link } = Astro.props;
+---
+
+<Default>
+  <Breadcrumb />
+
+  <main>
+    <article class="flex flex-col md:flex-row">
+      <div class="md:w-3/4 pr-5">
+        <div class="mb-5">
+          <slot />
+        </div>
+
+        <Footer />
+      </div>
+
+      {
+        cover && (
+          <div class="md:w-1/4">
+            <div class="mb-5">
+              <Header pubDate={pubDate} isbn={isbn} link={link} />
+            </div>
+
+            <Image
+              class="h-auto w-full max-w-full rounded-lg"
+              format="webp"
+              quality="mid"
+              width={510}
+              height={255}
+              alt={title}
+              src={import.meta.env.BASE_URL + cover}
+            />
+          </div>
+        )
+      }
+    </article>
+  </main>
+</Default>

@@ -2,8 +2,8 @@
 import type { MarkdownHeading } from "astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Prose from "../../components/Prose.astro";
-import Blog from "../../layouts/Blog.astro";
-
+import Articles from "../../layouts/Articles.astro";
+import Title from "../../components/commons/Title.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("articles");
@@ -30,12 +30,10 @@ const { post, headings } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Blog {...post.data} headings={headings}>
+<Articles {...post.data} headings={headings}>
+  <Title title={post.data.title} icon="mdi:file-edit-outline" />
   <Prose>
-    <h1 class="text-white dark:text-white mt-5 text-5xl font-bold my-5">
-      {post.data.title}
-    </h1>
 
     <Content />
   </Prose>
-</Blog>
+</Articles>

@@ -1,19 +1,20 @@
 ---
 import { Image } from "astro:assets";
 
-import Prose from "../components/Prose.astro";
 import Default from "../layouts/Default.astro";
-import ListArticles from "../components/blog/ListArticles.astro";
+import ListArticles from "../components/articles/ListArticles.astro";
+import ListBooks from "../components/books/ListBooks.astro";
 
 import imgBanner from "../assets/images/banner.svg";
-import imgArticle from "../assets/images/last-article.svg";
+import Title from "../components/commons/Title.astro";
+import SubTitle from "../components/commons/SubTitle.astro";
 ---
 
 <Default>
   <Image src={imgBanner} alt="Banner" class="w-full h-auto rounded-lg" />
-  <div class="mt-5 grid grid-cols-2 gap-4">
+  <Title title="Bienvenue !" icon="mdi:chevron-triple-right" />
+  <div class="grid grid-cols-2 gap-4">
     <div>
-      <h1 class="text-3xl font-bold text-orange-500">>>> Bienvenue !</h1>
       <p>
         Ce projet est né de mon envie constante de bousculer les idées
         préconçues et de sortir des chemins tout tracés, de refuser la
@@ -28,9 +29,7 @@ import imgArticle from "../assets/images/last-article.svg";
     </div>
 
     <div>
-      <h2 class="text-xl text-orange-500">
-        Un espace de réflexion et de partage
-      </h2>
+      <SubTitle title="Un espace de réflexion et de partage" />
       <p>
         Vous êtes dans un espace de réflexion où la technologie rencontre la
         gestion humaine, le management, l'holacratie, et l'idée d'une entreprise
@@ -43,7 +42,7 @@ import imgArticle from "../assets/images/last-article.svg";
     </div>
 
     <div>
-      <h2 class="text-xl text-orange-500">Plus qu'un blog tech</h2>
+      <SubTitle title="Plus qu'un blog tech" />
       <p>
         Bien sûr, je suis passionné de technologie, mais je suis également animé
         par ces nouveaux modèles d'organisation qui dépassent le cadre
@@ -55,7 +54,7 @@ import imgArticle from "../assets/images/last-article.svg";
     </div>
 
     <div>
-      <h2 class="text-xl text-orange-500">Une invitation à l'audace</h2>
+      <SubTitle title="Une invitation à l'audace" />
       <p>
         Ce blog est une invitation à sortir des sentiers battus, que ce soit
         dans la tech ou au-delà, pour créer, innover, et transformer nos idées
@@ -65,70 +64,14 @@ import imgArticle from "../assets/images/last-article.svg";
     </div>
   </div>
 
-  <h1 class="text-3xl font-bold my-5 text-orange-500">
-    >>> Les derniers articles
-  </h1>
+  <Title title="Mes derniers articles" icon="mdi:chevron-triple-right" />
   <ListArticles slice="3" />
-</Default>
 
-<style>
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  ul li {
-    width: calc(50% - 1rem);
-  }
-  ul li * {
-    text-decoration: none;
-    transition: 0.2s ease;
-  }
-  ul li:first-child {
-    width: 100%;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  ul li:first-child img {
-    width: 100%;
-  }
-  ul li:first-child h4 {
-    font-size: 2.369rem;
-    margin: 0;
-  }
-  ul li:first-child p {
-    text-align: center;
-  }
-  ul li img {
-    margin-bottom: 0.5rem;
-    border-radius: 12px;
-  }
-  ul li a {
-    display: block;
-  }
-  ul li a:hover h4,
-  ul li a:hover .date {
-    color: rgb(var(--accent));
-  }
-  ul a:hover img {
-    box-shadow: var(--box-shadow);
-  }
-  @media (max-width: 720px) {
-    ul {
-      gap: 0.5em;
-    }
-    ul li {
-      width: 100%;
-      text-align: center;
-    }
-    ul li:first-child {
-      margin-bottom: 0;
-    }
-    ul li:first-child .title {
-      font-size: 1.563em;
-    }
-  }
-</style>
+  <Title title="Mes dernieres publications" icon="mdi:chevron-triple-right" />
+  <ListBooks slice="3" />
+
+  <!-- 
+  <Title title="Mes dernieres conférences" icon="mdi:chevron-triple-right" />
+  <div>TODO</div>
+   -->
+</Default>

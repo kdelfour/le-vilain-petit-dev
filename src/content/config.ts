@@ -13,4 +13,17 @@ const articles = defineCollection({
 	}),
 });
 
-export const collections = { articles };
+const books = defineCollection({
+	type: 'content',
+	schema: z.object({
+		title: z.string(),
+		author: z.string(),
+		pubDate: z.coerce.date(),
+		publisher: z.string(),
+		link: z.string().url(),
+		cover: z.string(),
+		isbn: z.string(),
+	}),
+});
+
+export const collections = { articles, books };
