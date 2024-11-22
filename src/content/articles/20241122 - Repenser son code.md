@@ -1,7 +1,7 @@
 ---
 title: 'Repenser son code : Comment une quête de performance a transformé ma vision du web'
 description: 'Découvrez comment une refonte totale d’un site web, de Nuxt à Astro, a permis d’améliorer son impact carbone et sa performance.'
-pubDate: 20241122
+pubDate: 'Nov 22 2024'
 category: 'web-performance'
 tags: ['Astro', 'Tailwind', 'Eco-conception, 'développement-web']
 heroImage: 'articles/blog-eco-performance.jpg'
