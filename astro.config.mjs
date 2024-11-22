@@ -6,7 +6,6 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import pagefind from "astro-pagefind";
-import vercelStatic from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,5 +14,4 @@ export default defineConfig({
   output: "static",
   build: { format: "file" },
   integrations: [mdx(), sitemap(), tailwind(), icon(), pagefind()],
-  adapter: vercelStatic(),
 });
