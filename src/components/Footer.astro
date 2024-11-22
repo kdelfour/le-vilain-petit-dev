@@ -3,6 +3,8 @@ import { AUTHOR_DISCORD, AUTHOR_GITHUB, AUTHOR_LINKEDIN, SITE_ICON, SITE_TITLE }
 import { Icon } from "astro-icon/components";
 
 const today = new Date();
+const linkStyle =
+  "text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 lg:px-5 py-1 lg:py-2.5 mr-1 lg:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800";
 ---
 
 <footer class="p-4 bg-white sm:p-6 dark:bg-gray-800 sticky top-[100vh]">
@@ -19,21 +21,28 @@ const today = new Date();
       </div>
 
       <div class="flex items-center lg:order-2">
-        <a
-          href={import.meta.env.BASE_URL + "/"}
-          class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-          >Home</a
-        >
-        <a
-          href={import.meta.env.BASE_URL + "/articles"}
-          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
-          >Blog</a
-        >
-        <a
-          href={import.meta.env.BASE_URL + "/about"}
-          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
-          >About</a
-        >
+        <a href={import.meta.env.BASE_URL} class={linkStyle}>
+          <Icon name="mdi:home" class="inline mr-2" />
+          <span class="hidden sm:inline">Accueil</span>
+        </a>
+        <span class="mx-2 text-orange-500">|</span>
+        <a href={import.meta.env.BASE_URL + "articles"} class={linkStyle}>
+          Articles
+        </a>
+        <span class="mx-2 text-orange-500">|</span>
+        <a href={import.meta.env.BASE_URL + "books"} class={linkStyle}>
+          Livres
+        </a>
+        <span class="mx-2 text-orange-500">|</span>
+        <a href={import.meta.env.BASE_URL + "about"} class={linkStyle}>
+          <Icon name="mdi:duck" class="inline mr-2" />
+          <span class="hidden sm:inline">A propos</span>
+        </a>
+        <span class="mx-2 text-orange-500">|</span>
+        <a href={import.meta.env.BASE_URL + "search"} class={linkStyle}>
+          <Icon name="mdi:search" class="inline mr-2" />
+          <span class="hidden sm:inline">Recherche</span>
+        </a>
       </div>
     </div>
     <div class="sm:flex sm:items-center sm:justify-between">

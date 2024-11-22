@@ -20,14 +20,6 @@ const { title, pubDate, cover, isbn, link } = Astro.props;
 
   <main>
     <article class="flex flex-col md:flex-row">
-      <div class="md:w-3/4 pr-5">
-        <div class="mb-5">
-          <slot />
-        </div>
-
-        <Footer />
-      </div>
-
       {
         cover && (
           <div class="md:w-1/4">
@@ -47,6 +39,16 @@ const { title, pubDate, cover, isbn, link } = Astro.props;
           </div>
         )
       }
+
+      <div class="md:w-3/4 pl-5">
+        <div class="mb-5">
+          <slot />
+        </div>
+
+        <Footer />
+      </div>
+
+      
     </article>
   </main>
 </Default>

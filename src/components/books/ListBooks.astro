@@ -16,7 +16,7 @@ const allPosts = (await getCollection("books")).sort(
 const posts = slice ? allPosts.slice(0, slice) : allPosts;
 ---
 
-<section class="grid grid-cols-3 gap-4">
+<section class="grid md:grid-cols-3 sm:grid-cols-1 gap-4">
   {
     posts.map((post) => (
       <div class="flex flex-col items-center">
@@ -24,12 +24,10 @@ const posts = slice ? allPosts.slice(0, slice) : allPosts;
           href={import.meta.env.BASE_URL + `books/${post.slug}/`}
           class="text-center"
         >
-          <Image
-            width={320}
-            height={480}
+          <img
             src={import.meta.env.BASE_URL + post.data.cover}
             alt={`Couverture du livre ${post.data.title}`}
-            class="mx-auto rounded-lg"
+            class="mx-auto rounded-lg w-full max-w-xs"
           />
           <div>
             <SubTitle title={post.data.title} />
