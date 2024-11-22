@@ -1,7 +1,7 @@
 ---
 title: 'Quand on parle d'Entreprise Libérée : clarification sur la Gouvernance Partagée et l'Holacratie'
 description: 'Explorer les concepts clés de la gouvernance partagée et de l’Holacratie dans le cadre de l’Entreprise Libérée, tout en proposant des perspectives novatrices pour repenser l’organisation du travail.'
-pubDate: 20240812
+pubDate: 'Aug 12 2024'
 category: 'Management et Innovation'
 tags: ['Entreprise Libérée', 'Holacratie', 'Gouvernance Partagée', 'Innovation Organisationnelle']
 heroImage: 'articles/entreprise-liberee.jpg'
