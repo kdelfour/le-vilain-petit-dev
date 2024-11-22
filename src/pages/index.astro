@@ -6,12 +6,21 @@ import ListArticles from "../components/articles/ListArticles.astro";
 import ListBooks from "../components/books/ListBooks.astro";
 
 import imgBanner from "../assets/images/banner.svg";
+import imgTopBannerMobile from "../assets/images/mobile-banner-1.svg";
+import imgBottomBannerMobile from "../assets/images/mobile-banner-2.svg";
+
 import Title from "../components/commons/Title.astro";
 import SubTitle from "../components/commons/SubTitle.astro";
 ---
 
 <Default>
-  <Image src={imgBanner} alt="Banner" class="w-full h-auto rounded-lg" />
+  <div class="hidden sm:block">
+    <Image src={imgBanner} alt="Banner" class="w-full h-auto rounded-lg" />
+  </div>
+  <div class="block sm:hidden m-0 p-0">
+    <Image src={imgTopBannerMobile} alt="Banner" class="w-full h-auto" />
+    <Image src={imgBottomBannerMobile} alt="Banner" class="w-full h-auto" />
+  </div>
   <Title title="Bienvenue !" icon="mdi:chevron-triple-right" />
   <div class="grid grid-cols-2 gap-4">
     <div>
