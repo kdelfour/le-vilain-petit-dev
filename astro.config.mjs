@@ -12,6 +12,5 @@ export default defineConfig({
   site: "https://kdelfour.github.io",
   base: "",
   output: "static",
-  build: { format: "file" },
   integrations: [mdx(), sitemap(), tailwind(), icon(), pagefind()],
 });
