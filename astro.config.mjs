@@ -6,15 +6,14 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import pagefind from "astro-pagefind";
-
-import vercel from "@astrojs/vercel/serverless";
+import vercelStatic from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://kdelfour.github.io",
-  base: "/blog/",
+  base: "",
   output: "static",
   build: { format: "file" },
   integrations: [mdx(), sitemap(), tailwind(), icon(), pagefind()],
-  adapter: vercel({ webAnalytics: { enabled: true } }),
+  adapter: vercelStatic(),
 });
