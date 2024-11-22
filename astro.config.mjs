@@ -6,7 +6,6 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import pagefind from "astro-pagefind";
-import min from "astro-min";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,5 +15,5 @@ export default defineConfig({
   build: {
     format: "file",
   },
-  integrations: [mdx(), sitemap(), tailwind(), icon(), pagefind(), min()],
+  integrations: [mdx(), sitemap(), tailwind(), icon(), pagefind()],
 });
