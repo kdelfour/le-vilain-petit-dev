@@ -3,7 +3,7 @@
 
 title: "L'harmonie plutôt que l'équilibre : pourquoi la séparation vie pro/perso est une illusion" 
 description: "Exploration de l'intégration harmonieuse de la vie professionnelle et personnelle à l'ère numérique" 
-pubDate: 20240901 
+pubDate: 'Sep 01 2024' 
 category: "Management" 
 tags: ["harmonie", "équilibre", "vie professionnelle", "vie personnelle", "management", "innovation"] 
 heroImage: "articles/harmonie-vie-pro-perso.jpg"
