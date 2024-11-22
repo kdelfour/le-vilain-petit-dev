@@ -4,7 +4,7 @@ author: Kevin Delfour
 pubDate: 2023
 publisher: Le Vilain Petit Dev
 link: https://play.google.com/store/books/details/Kevin_Delfour_En_Qu%C3%AAte_d_Exp%C3%A9rience?id=RejMEAAAQBAJ&hl=fr
-cover: books/202307-en-quete-d-experience.png
+cover: books/2023-en-quete-d-experience.webp
 isbn: 979-10-415-2401-3
 ---
 ## À propos de ce livre

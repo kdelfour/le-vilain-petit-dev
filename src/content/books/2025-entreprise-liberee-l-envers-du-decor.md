@@ -4,7 +4,7 @@ author: Kevin Delfour
 pubDate: 2025
 publisher: Le Vilain Petit Dev
 link:
-cover: books/2025-entreprise-liberee-l-envers-du-decor.png
+cover: books/2025-entreprise-liberee-l-envers-du-decor.webp
 isbn:
 ---
 
