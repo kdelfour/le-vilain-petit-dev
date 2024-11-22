@@ -1,7 +1,7 @@
 ---
 title: En quête d'expérience, le chemin du.de la jeune développeur.euse 
 author: Kevin Delfour
-pubDate: 2023-07
+pubDate: 2023
 publisher: Le Vilain Petit Dev
 link: https://play.google.com/store/books/details/Kevin_Delfour_En_Qu%C3%AAte_d_Exp%C3%A9rience?id=RejMEAAAQBAJ&hl=fr
 cover: books/202307-en-quete-d-experience.png

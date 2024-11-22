@@ -18,11 +18,11 @@ const books = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		author: z.string(),
-		pubDate: z.coerce.date(),
+		pubDate: z.number(),
 		publisher: z.string(),
-		link: z.string().url(),
+		link: z.string().url().nullable().optional(),
 		cover: z.string(),
-		isbn: z.string(),
+		isbn: z.string().nullable().optional(),
 	}),
 });
 
