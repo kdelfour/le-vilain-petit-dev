@@ -3,8 +3,8 @@ title: 'Repenser son code : Comment une quête de performance a transformé ma v
 description: 'Découvrez comment une refonte totale d’un site web, de Nuxt à Astro, a permis d’améliorer son impact carbone et sa performance.'
 pubDate: 'Nov 22 2024'
 category: 'web-performance'
-tags: ['Astro', 'Tailwind', 'Eco-conception, 'développement-web']
-heroImage: 'articles/blog-eco-performance.jpg'
+tags: ['Astro', 'Tailwind', 'Eco-conception', 'Développement Web']
+heroImage: 'articles/20241122-repenser-son-code.webp'
 ---
 
 Il y a peu, je me suis retrouvé face à une réalité qui fait mal à tout développeur soucieux de bien faire. En testant un site simple que j'avais créé sur [Website Carbon](https://www.websitecarbon.com/), le verdict est tombé : **note F**. Clairement, mon impact écologique était à des années-lumière de ce que je souhaitais défendre. Pourtant, j’avais opté pour une stack que je considérais comme moderne et efficace : **Nuxt avec Nuxt UI Pro**. Rapidité de développement ? Oui. Performance environnementale ? Non.  
