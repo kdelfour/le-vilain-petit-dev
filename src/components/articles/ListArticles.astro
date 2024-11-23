@@ -15,33 +15,31 @@ const allPosts = (await getCollection("articles")).sort(
 const posts = slice ? allPosts.slice(0, slice) : allPosts;
 ---
 
-<section>
-  <ul>
-    {
-      posts.map((post) => (
-        <li>
-          <a href={import.meta.env.BASE_URL + `articles/${post.slug}/`}>
-            <img
-              width={720}
-              height={360}
-              src={import.meta.env.BASE_URL + post.data.heroImage}
-              alt=""
-            />
-            <div>
-              <SubTitle title={post.data.title} />
-              {/* <h4>{post.data.title}</h4> */}
-              <span class="text-gray-300 text-sm">{post.data.description}</span>
-              <p class="text-gray-300 text-sm">
-                Publié le <FormattedDate date={post.data.pubDate} />
-              </p>
-            </div>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<section class="grid md:grid-cols-3 sm:grid-cols-1 gap-4">
+  {
+    posts.map((post) => (
+      <div class="flex flex-col items-center">
+        <a href={import.meta.env.BASE_URL + `articles/${post.slug}/`}>
+          <img
+            width={720}
+            height={360}
+            src={import.meta.env.BASE_URL + post.data.heroImage}
+            alt=""
+          />
+          <div>
+            <SubTitle title={post.data.title} />
+            {/* <h4>{post.data.title}</h4> */}
+            <span class="text-gray-300 text-sm">{post.data.description}</span>
+            <p class="text-gray-300 text-sm">
+              Publié le <FormattedDate date={post.data.pubDate} />
+            </p>
+          </div>
+        </a>
+      </div>
+    ))
+  }
 </section>
-
+<!-- 
 <style>
   ul {
     display: flex;
@@ -102,4 +100,4 @@ const posts = slice ? allPosts.slice(0, slice) : allPosts;
       font-size: 1.563em;
     }
   }
-</style>
+</style> -->
