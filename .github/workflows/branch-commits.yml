@@ -29,7 +29,9 @@ jobs:
         uses: withastro/action@v3.0.0
 
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v12
         with:
           uploadArtifacts: true
           temporaryPublicStorage: true
+      - name: Post results
+        run: npx post-summary --report-filename lighthouse-results.json
