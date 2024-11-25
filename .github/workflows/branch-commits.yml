@@ -34,4 +34,9 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
       - name: Post results
-        run: npx post-summary --report-filename lighthouse-results.json
+        run: npx post-status --min 90 --report-filename lighthouse-results.json
+      - name: Post summary
+        uses: manrueda/lighthouse-report-action@v1.1.2
+        with:
+          reports: ".lighthouseci"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
