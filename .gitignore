@@ -2,7 +2,9 @@
 dist/
 # generated types
 .astro/
-.vercel/
+
+# lighthouse ci
+.lighthouseci/
 
 # dependencies
 node_modules/

@@ -1,0 +1,66 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./dist",
+      "url": [
+        "http://localhost:4321",
+        "http://localhost:4321/articles",
+        "http://localhost:4321/books",
+        "http://localhost:4321/about"
+      ],
+      "numberOfRuns": 2
+    },
+    "assert": {
+      "assertions": {
+        "resource-summary.totalBytes": [
+          "warning",
+          {
+            "maxNumericValue": 500000
+          }
+        ],
+        "resource-summary.requestCount": [
+          "warning",
+          {
+            "maxNumericValue": 50
+          }
+        ],
+        "script-treemap-data.unusedBytes": [
+          "warning",
+          {
+            "maxNumericValue": 100000
+          }
+        ],
+        "uses-optimized-images": ["error"],
+        "interactive": [
+          "error",
+          {
+            "maxNumericValue": 3000
+          }
+        ],
+        "first-contentful-paint": [
+          "error",
+          {
+            "maxNumericValue": 1000
+          }
+        ],
+        "categories.accessibility": [
+          "error",
+          {
+            "minScore": 0.8
+          }
+        ],
+        "categories.seo": [
+          "warning",
+          {
+            "minScore": 0.9
+          }
+        ],
+        "font-display": ["error"],
+        "uses-long-cache-ttl": ["error"]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

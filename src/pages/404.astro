@@ -1,7 +1,7 @@
 ---
 import Default from "../layouts/Default.astro";
 
-import error404 from "../assets/images/404.svg";
+import errorImg from "../assets/images/error.webp";
 ---
 
 <Default>
@@ -9,7 +9,7 @@ import error404 from "../assets/images/404.svg";
     <div class="mx-auto text-center">
       <div
         class="w-full bg-center bg-cover"
-        style={"background-image: url('" + error404.src + "'); height: 600px;"}
+        style={"background-image: url('" + errorImg.src + "'); height: 600px;"}
       >
         <div
           class="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50 py-12"
