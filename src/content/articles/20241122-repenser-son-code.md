@@ -57,7 +57,6 @@ Pour beaucoup, ces optimisations peuvent sembler négligeables. Après tout, une
 
 Cette démarche est aussi extrêmement stimulante. Voir un site plus rapide, plus léger, et obtenir une bien meilleure note sur des outils comme Website Carbon donne un sentiment d’accomplissement unique.  
 
-## Une invitation à passer à l’action
 Si vous êtes développeur ou concepteur, je vous invite à essayer cet exercice sur vos propres projets. Testez-les sur [Website Carbon](https://www.websitecarbon.com/), analysez les résultats, et demandez-vous : **que puis-je faire pour améliorer cela ?**  
 
 Vous pourriez être surpris des solutions simples qui existent pour :  

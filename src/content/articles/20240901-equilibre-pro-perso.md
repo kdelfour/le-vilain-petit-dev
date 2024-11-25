@@ -27,7 +27,7 @@ Les entreprises innovantes l'ont compris : favoriser l'harmonie entre vie pro et
 
 Permettre aux collaborateurs de gérer leur temps et leurs priorités renforce leur engagement. L'autonomie encourage la créativité et l'innovation, des atouts précieux dans un monde en constante évolution.
 
-#@ Transparence et communication
+# Transparence et communication
 
 Une communication ouverte sur les contraintes et les besoins de chacun favorise la compréhension mutuelle. Cela crée un climat de confiance où les collaborateurs se sentent soutenus tant professionnellement que personnellement.
 
@@ -38,7 +38,5 @@ En adoptant une approche collaborative, les équipes peuvent s'adapter aux impr�
 ## Remettre en question les idées reçues
 
 Il est temps de repenser notre vision du travail. Plutôt que de chercher un équilibre souvent impossible à atteindre, viser l'harmonie nous permet de naviguer plus sereinement entre nos différentes aspirations.
-
-# Une invitation à la réflexion
 
 Et vous, quelles sont vos expériences en matière d'harmonie entre vie professionnelle et personnelle ? Avez-vous déjà tenté de briser les barrières traditionnelles pour créer votre propre équilibre ?
