@@ -1,10 +1,10 @@
 ---
 title: "Automatiser des tests pour maîtriser son impact carbone : guide pratique"
 description: "Découvrez comment automatiser des tests pour réduire l’impact carbone de vos projets numériques, grâce à un guide accessible et innovant."
-pubDate: "Nov 27 2024"
+pubDate: "Dec 01 2024"
 category: 'web-performance'
 tags: ["Tests automatisés", "Eco-conception", "Développement web"]
-cover: "20241127-lighthouse-ci-github-action"
+cover: "20241201-lighthouse-ci-github-action"
 ---
 
 ## Comprendre l’impact carbone du numérique
