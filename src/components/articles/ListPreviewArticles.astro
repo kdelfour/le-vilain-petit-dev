@@ -26,7 +26,8 @@ if (articles) {
   const allPosts = (await getCollection("articles"))
     .filter((post) => new Date(post.data.pubDate) <= new Date())
     .sort(
-      (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+      (a, b) =>
+        new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
     );
 
   posts = slice ? allPosts.slice(0, slice) : allPosts;
