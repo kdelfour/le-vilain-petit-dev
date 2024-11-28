@@ -9,8 +9,8 @@ const { pubDate, isbn, link } = Astro.props;
 ---
 
 <div class="text-gray-300 text-sm">
-  <div>
-    {!isbn ? `À paraître en ${pubDate}` : `Publié en ${pubDate}`}
+  <div class={!isbn ? "text-orange-500" : ""}>
+    {!isbn ? `Sortie prévue en ${pubDate}` : `Publié en ${pubDate}`}
   </div>
 
   <div class="mt-2">
@@ -24,7 +24,7 @@ const { pubDate, isbn, link } = Astro.props;
       <div class="mx-auto p-5 mt-2 w-full bg-gray-100 dark:bg-gray-800 rounded-lg">
         Vous souhaitez lire ce livre? <br />
         Suivez ce{" "}
-        <a href={link} class="font-bold text-blue-500 font-bold">
+        <a href={link} class="text-blue-500 font-bold">
           {" "}
           lien
         </a>
