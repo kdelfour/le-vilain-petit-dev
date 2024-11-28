@@ -1,0 +1,40 @@
+---
+import SubTitle from "../commons/SubTitle.astro";
+import FormattedDate from "../commons/FormattedDate.astro";
+
+type PreviewArticleProps = {
+  post: {
+    slug: string;
+    data: {
+      cover: string;
+      title: string;
+      description: string;
+      pubDate: Date;
+    };
+  };
+};
+
+const { post } = Astro.props as PreviewArticleProps;
+---
+
+<div class="flex flex-col items-center mb-5">
+  <a href={`${import.meta.env.BASE_URL}articles/${post.slug}/`}>
+    <img
+      width={720}
+      height={360}
+      class="mx-auto h-auto max-w-full rounded-lg"
+      src={import.meta.env.BASE_URL +
+        "articles/" +
+        post.data.cover +
+        "_thumbnail.webp"}
+      alt=""
+    />
+    <div>
+      <SubTitle title={post.data.title} />
+      <span class="text-gray-300 text-sm">{post.data.description}</span>
+      <p class="text-gray-500 text-sm">
+        Publié le <FormattedDate date={post.data.pubDate} />
+      </p>
+    </div>
+  </a>
+</div>

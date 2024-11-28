@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import Tag from "../commons/Tag.astro";
+
+interface ListArticlesProps {
+  label?: string;
+  slice?: number;
+}
+
+const { label, slice } = Astro.props as ListArticlesProps;
+
+const allPosts = (await getCollection("articles"))
+  .filter((post) => new Date(post.data.pubDate) <= new Date())
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const posts = slice ? allPosts.slice(0, slice) : allPosts;
+const allTags = posts.map((post) => post.data.tags).flat().filter(tag => tag !== undefined);
+
+const tags = allTags.reduce<Record<string, number>>((acc, tag) => {
+  acc[tag] = (acc[tag] || 0) + 1;
+  return acc;
+}, {});
+
+const tagsEntries = Object.entries(tags) as [string, number][];
+---
+
+{
+  (
+    <div class="pb-10 flex flex-wrap gap-2">
+      {label && <h3 class="text-lg font-bold">{label} : </h3>}
+      {tagsEntries.map(([key, val]) => (
+        <Tag
+          tag={key}
+          counter={val}
+          href={`${import.meta.env.BASE_URL}tags/${key}/`}
+        />
+      ))}
+    </div>
+  )
+}

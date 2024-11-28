@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 import Default from "../layouts/Default.astro";
-import ListArticles from "../components/articles/ListArticles.astro";
+import ListPreviewArticles from "../components/articles/ListPreviewArticles.astro";
 import ListBooks from "../components/books/ListBooks.astro";
 
 import imgBanner from "../assets/images/banner.webp";
@@ -22,7 +22,7 @@ import SubTitle from "../components/commons/SubTitle.astro";
     <Image src={imgBottomBannerMobile} alt="Banner" class="w-full h-auto" />
   </div>
   <Title title="Bienvenue !" icon="mdi:chevron-triple-right" />
-  <div class="grid grid-cols-2 gap-4">
+  <div class="grid xs:grid-cols-1 sm:grid-cols-2 gap-10">
     <div>
       <p>
         Ce projet est né de mon envie constante de bousculer les idées
@@ -74,7 +74,7 @@ import SubTitle from "../components/commons/SubTitle.astro";
   </div>
 
   <Title title="Mes derniers articles" icon="mdi:chevron-triple-right" />
-  <ListArticles slice="3" />
+  <ListPreviewArticles slice="3" />
 
   <Title title="Mes livres" icon="mdi:chevron-triple-right" />
   <ListBooks slice="3" />

@@ -1,7 +1,8 @@
 ---
 import Default from "../../layouts/Default.astro";
-import ListArticles from "../../components/articles/ListArticles.astro";
+import ListPreviewArticles from "../../components/articles/ListPreviewArticles.astro";
 import Title from "../../components/commons/Title.astro";
+import TagsList from "../../components/articles/TagsList.astro";
 ---
 
 <Default>
@@ -23,7 +24,9 @@ import Title from "../../components/commons/Title.astro";
   </p>
   <hr class="my-4 border-gray-800" />
 
-  <ListArticles />
+  <TagsList label="Rechercher par tag" />
+
+  <ListPreviewArticles />
 
   <hr class="my-4 border-gray-800" />
 
