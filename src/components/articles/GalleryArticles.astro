@@ -1,8 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import Preview from "./article/Preview.astro";
+import type { CollectionEntry } from "astro:content";
 
-interface Article {
+/**
+ * Interface pour les données d'un article
+ */
+interface Article extends CollectionEntry<"articles"> {
   slug: string;
   data: {
     pubDate: string;
@@ -12,38 +16,47 @@ interface Article {
   };
 }
 
-interface ListArticlesProps {
+/**
+ * Props du composant GalleryArticles
+ */
+interface Props {
+  /** Liste optionnelle d'articles à afficher */
   articles?: Article[];
+  /** Nombre d'articles à afficher (optionnel) */
   slice?: number;
 }
 
-const { articles, slice } = Astro.props as ListArticlesProps;
+const { articles, slice } = Astro.props;
 
-let posts;
-if (articles) {
-  posts = articles;
-} else {
+/**
+ * Récupère et trie les articles
+ */
+const getPosts = async (articles?: Article[], slice?: number) => {
+  if (articles) return articles;
+
   const allPosts = (await getCollection("articles"))
     .filter((post) => new Date(post.data.pubDate) <= new Date())
-    .sort(
-      (a, b) =>
-        new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+    .sort((a, b) => 
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
     );
 
-  posts = slice ? allPosts.slice(0, slice) : allPosts;
-}
+  return slice ? allPosts.slice(0, slice) : allPosts;
+};
+
+const posts = await getPosts(articles, slice);
 ---
 
-<section class="grid md:grid-cols-3 sm:grid-cols-1 gap-4">
-  {
-    posts.map((post) => (
-      <Preview
-        slug={post.slug}
-        title={post.data.title}
-        description={post.data.description}
-        pubDate={post.data.pubDate}
-        cover={post.data.cover}
-      />
-    ))
-  }
+<section 
+  class="grid md:grid-cols-3 sm:grid-cols-1 gap-4"
+  aria-label="Liste des articles"
+>
+  {posts.map((post) => (
+    <Preview
+      slug={post.slug}
+      title={post.data.title}
+      description={post.data.description}
+      pubDate={post.data.pubDate}
+      cover={post.data.cover}
+    />
+  ))}
 </section>

@@ -1,40 +1,54 @@
 ---
 import { getCollection } from "astro:content";
 import Tag from "../commons/Tag.astro";
+import type { CollectionEntry } from "astro:content";
 
-interface ListArticlesProps {
+/**
+ * Props du composant TagsList
+ */
+interface Props {
+  /** Libellé à afficher avant la liste des tags */
   label?: string;
+  /** Nombre de tags à afficher */
   slice?: number;
 }
 
-const { label, slice } = Astro.props as ListArticlesProps;
+const { label, slice } = Astro.props;
 
-const allPosts = (await getCollection("articles"))
-  .filter((post) => new Date(post.data.pubDate) <= new Date())
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+/**
+ * Récupère et traite les tags des articles
+ */
+const getTagsWithCount = async (slice?: number) => {
+  const allPosts = (await getCollection("articles"))
+    .filter((post) => new Date(post.data.pubDate) <= new Date())
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const posts = slice ? allPosts.slice(0, slice) : allPosts;
-const allTags = posts.map((post) => post.data.tags).flat().filter(tag => tag !== undefined);
+  const posts = slice ? allPosts.slice(0, slice) : allPosts;
+  
+  // Extraction et filtrage des tags
+  const allTags = posts
+    .map((post) => post.data.tags)
+    .flat()
+    .filter((tag): tag is string => tag !== undefined);
 
-const tags = allTags.reduce<Record<string, number>>((acc, tag) => {
-  acc[tag] = (acc[tag] || 0) + 1;
-  return acc;
-}, {});
+  // Comptage des occurrences de chaque tag
+  return allTags.reduce<Record<string, number>>((acc, tag) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+    return acc;
+  }, {});
+};
 
-const tagsEntries = Object.entries(tags) as [string, number][];
+const tags = await getTagsWithCount(slice);
+const tagsEntries = Object.entries(tags);
 ---
 
-{
-  (
-    <div class="pb-10 flex flex-wrap gap-2">
-      {label && <h3 class="text-lg font-bold">{label} : </h3>}
-      {tagsEntries.map(([key, val]) => (
-        <Tag
-          tag={key}
-          counter={val}
-          href={`${import.meta.env.BASE_URL}tags/${key}/`}
-        />
-      ))}
-    </div>
-  )
-}
+<div class="pb-10 flex flex-wrap gap-2" role="navigation" aria-label="Tags des articles">
+  {label && <h3 class="text-lg font-bold">{label} : </h3>}
+  {tagsEntries.map(([tag, count]) => (
+    <Tag
+      tag={tag}
+      counter={count}
+      href={`${import.meta.env.BASE_URL}tags/${tag}/`}
+    />
+  ))}
+</div>

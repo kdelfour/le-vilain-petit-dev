@@ -1,8 +1,54 @@
 ---
 import { Icon } from "astro-icon/components";
-const { title, icon } = Astro.props;
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * Props du composant Title
+ */
+interface Props extends HTMLAttributes<'h1'> {
+  /** Texte du titre */
+  title: string;
+  /** Nom de l'icône Material Design Icons (optionnel) */
+  icon?: string;
+  /** Classes CSS additionnelles (optionnel) */
+  class?: string;
+}
+
+const {
+  title,
+  icon,
+  class: additionalClasses = '',
+  ...rest
+} = Astro.props;
+
+const containerStyles = [
+  // Typographie
+  'text-4xl font-bold',
+  // Couleurs
+  'text-orange-500',
+  // Layout
+  'flex items-center',
+  // Espacement
+  'mt-10 mb-5',
+  // Classes additionnelles
+  additionalClasses
+].join(' ');
+
+const iconStyles = [
+  'text-yellow-500',
+  'mr-4',
+  'transition-transform duration-200 hover:scale-110'
+].join(' ');
 ---
 
-<h1 class="text-4xl font-bold text-orange-500 flex items-center mt-10 mb-5">
-  <Icon name={icon} class="text-yellow-500 mr-4" /><span>{title}</span>
+<h1 class={containerStyles} {...rest}>
+  {icon && (
+    <Icon 
+      name={icon} 
+      class={iconStyles}
+      aria-hidden="true"
+      role="img"
+    />
+  )}
+  <span>{title}</span>
 </h1>

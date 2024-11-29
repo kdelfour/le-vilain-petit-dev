@@ -1,17 +1,49 @@
 ---
-interface Props {
-	date: Date;
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * Options de formatage de la date
+ */
+const DEFAULT_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+};
+
+/**
+ * Props du composant FormattedDate
+ */
+interface Props extends HTMLAttributes<'time'> {
+  /** Date à formater */
+  date: Date;
+  /** Options de formatage personnalisées (optionnel) */
+  formatOptions?: Intl.DateTimeFormatOptions;
+  /** Locale pour le formatage (optionnel) */
+  locale?: string;
+  /** Classes CSS additionnelles (optionnel) */
+  class?: string;
 }
 
-const { date } = Astro.props;
+const {
+  date,
+  formatOptions = DEFAULT_FORMAT_OPTIONS,
+  locale = 'fr-FR',
+  class: additionalClasses = '',
+  ...rest
+} = Astro.props;
+
+// Formatage de la date pour l'affichage
+const formattedDate = date.toLocaleDateString(locale, formatOptions);
+
+// Formatage de la date pour l'attribut datetime (ISO)
+const isoDate = date.toISOString();
 ---
 
-<time datetime={date.toISOString()}>
-	{
-		date.toLocaleDateString('fr-FR', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
-	}
+<time 
+  datetime={isoDate}
+  class={additionalClasses}
+  {...rest}
+  title={`Date de publication : ${formattedDate}`}
+>
+  {formattedDate}
 </time>

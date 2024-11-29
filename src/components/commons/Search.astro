@@ -1,5 +1,24 @@
 ---
 import PagefindSearch from "astro-pagefind/components/Search";
+
+/**
+ * Configuration des traductions pour l'interface de recherche
+ */
+const translations = {
+  placeholder: "Rechercher un article",
+  clear_search: "Effacer",
+  load_more: "Afficher plus de résultats",
+  search_label: "Rechercher sur ce site",
+  filters_label: "Filtres",
+  zero_results: "Aucun résultat pour [SEARCH_TERM]",
+  many_results: "[COUNT] résultats pour [SEARCH_TERM]",
+  one_result: "[COUNT] résultat pour [SEARCH_TERM]",
+  alt_search:
+    "Aucun résultat pour [SEARCH_TERM]. Affichage des résultats pour [DIFFERENT_TERM] à la place",
+  search_suggestion:
+    "Aucun résultat pour [SEARCH_TERM]. Essayez une des recherches suivantes :",
+  searching: "Recherche en cours pour [SEARCH_TERM]...",
+};
 ---
 
 <PagefindSearch
@@ -8,25 +27,12 @@ import PagefindSearch from "astro-pagefind/components/Search";
   uiOptions={{
     showSubResults: false,
     showEmptyFilters: true,
-    translations: {
-      placeholder: "Rechercher un article",
-      clear_search: "Effacer",
-      load_more: "Afficher plus de résultats",
-      search_label: "Rechercher sur ce site",
-      filters_label: "Filtres",
-      zero_results: "Aucun résultat pour [SEARCH_TERM]",
-      many_results: "[COUNT] résultats pour [SEARCH_TERM]",
-      one_result: "[COUNT] résultat pour [SEARCH_TERM]",
-      alt_search:
-        "Aucun résultat pour [SEARCH_TERM]. Affichage des résultats pour [DIFFERENT_TERM] à la place",
-      search_suggestion:
-        "Aucun résultat pour [SEARCH_TERM]. Essayez une des recherches suivantes :",
-      searching: "Recherche en cours pour [SEARCH_TERM]...",
-    },
+    translations,
   }}
 />
 
 <style is:global>
+  /* Styles de base */
   :root {
     --pagefind-ui-scale: 0.8;
     --pagefind-ui-primary: #152028;
@@ -46,11 +52,15 @@ import PagefindSearch from "astro-pagefind/components/Search";
     --pagefind-button-background: var(--pagefind-input-background);
     --pagefind-button-color: var(--pagefind-ui-message-text);
   }
+
+  /* Styles de l'input de recherche */
   #search .pagefind-ui__search-input,
   #search .pagefind-ui__search-clear {
     background-color: var(--pagefind-input-background);
     color: var(--pagefind-ui-primary);
   }
+
+  /* Styles des titres de résultats */
   #search .pagefind-ui__result-title,
   #search .pagefind-ui__result-link {
     display: inline-block;
@@ -58,21 +68,29 @@ import PagefindSearch from "astro-pagefind/components/Search";
     font-size: calc(40px * var(--pagefind-ui-scale));
     color: var(--pagefind-ui-result-title-text);
   }
+
+  /* Styles des extraits de résultats */
   #search .pagefind-ui__result-excerpt {
     color: var(--pagefind-ui-result-text);
     font-weight: 400;
     font-size: calc(1.5rem * var(--pagefind-ui-scale));
   }
+
+  /* Styles des messages */
   #search .pagefind-ui__message {
     color: var(--pagefind-ui-message-text);
     margin: calc(0.5rem * var(--pagefind-ui-scale)) 0
       calc(1.5rem * var(--pagefind-ui-scale))
       calc(0.5rem * var(--pagefind-ui-scale));
   }
+
+  /* Styles des boutons */
   #search .pagefind-ui__button {
     color: var(--pagefind-button-color);
     background: var(--pagefind-button-background);
   }
+
+  /* Masquer les miniatures */
   #search .pagefind-ui__result-thumb {
     display: none;
   }

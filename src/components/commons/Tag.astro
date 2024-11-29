@@ -1,23 +1,72 @@
 ---
-interface TagProps {
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * Props du composant Tag
+ * @interface Props
+ * @extends {HTMLAttributes<'a'>} - Hérite des attributs HTML standards pour les liens
+ */
+interface Props extends HTMLAttributes<'a'> {
+  /** Nom du tag */
   tag: string;
+  /** Nombre d'articles associés au tag */
   counter: number;
+  /** URL de la page de listing des articles du tag */
   href: string;
+  /** Classes CSS additionnelles (optionnel) */
+  class?: string;
 }
 
-const { tag, counter, href } = Astro.props as TagProps;
+const { 
+  tag, 
+  counter, 
+  href,
+  class: additionalClasses = '',
+  ...rest
+} = Astro.props;
+
+const baseStyles = [
+  // Layout et alignement
+  'inline-flex items-center',
+  // Typographie
+  'text-xs font-medium',
+  // Couleurs et bordures
+  'text-orange-500',
+  'border border-orange-500',
+  // Espacement
+  'me-2 px-3 py-1',
+  // Forme
+  'rounded',
+  // Classes additionnelles
+  additionalClasses
+].join(' ');
+
+const counterStyles = [
+  // Layout
+  'inline-flex items-center justify-center',
+  // Dimensions
+  'w-4 h-4',
+  // Typographie
+  'text-xs font-semibold',
+  // Couleurs
+  'text-gray-900 bg-orange-300',
+  // Forme
+  'rounded-full',
+  // Espacement
+  'ms-2'
+].join(' ');
 ---
 
-<a
-  href={href}
-  class="inline-flex items-center text-orange-500 text-xs font-medium me-2 px-3 py-1 rounded border border-orange-500"
+<a 
+  href={href} 
+  class={baseStyles}
+  {...rest}
+  aria-label={`Voir les articles tagués ${tag} (${counter} article${counter > 1 ? 's' : ''})`}
 >
   {tag}
-  {
-    counter && (
-      <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-gray-900 bg-orange-300 rounded-full">
-        {counter}
-      </span>
-    )
-  }
+  {counter > 0 && (
+    <span class={counterStyles} aria-hidden="true">
+      {counter}
+    </span>
+  )}
 </a>

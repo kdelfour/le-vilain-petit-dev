@@ -1,5 +1,36 @@
 ---
-const { title } = Astro.props;
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * Props du composant SubTitle
+ */
+interface Props extends HTMLAttributes<'h2'> {
+  /** Texte du sous-titre */
+  title: string;
+  /** Classes CSS additionnelles (optionnel) */
+  class?: string;
+}
+
+const {
+  title,
+  class: additionalClasses = '',
+  ...rest
+} = Astro.props;
+
+const styles = [
+  // Typographie
+  'text-xl',
+  // Couleurs
+  'text-orange-500',
+  // Espacement
+  'mb-4',
+  // Animation
+  'transition-colors duration-200 hover:text-orange-600',
+  // Classes additionnelles
+  additionalClasses
+].join(' ');
 ---
 
-<h2 class="text-xl text-orange-500">{title}</h2>
+<h2 class={styles} {...rest}>
+  {title}
+</h2>

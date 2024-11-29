@@ -1,54 +1,74 @@
 ---
-import { SITE_ICON, SITE_TITLE } from "../consts";
-import { Icon } from "astro-icon/components";
+import type { NavigationItem } from "../types/navigation";
+import NavigationLink from "./commons/NavigationLink.astro";
+import SiteLogo from "./commons/SiteLogo.astro";
 
-const linkStyle =
-  "text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 lg:px-5 py-1 lg:py-2.5 mr-1 lg:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800";
+/**
+ * Configuration des éléments de navigation
+ */
+const baseUrl = import.meta.env.BASE_URL;
+
+const navigationItems: NavigationItem[] = [
+  {
+    href: baseUrl,
+    icon: "mdi:home",
+    label: "Accueil",
+    showLabelOnMobile: false,
+  },
+  {
+    href: `${baseUrl}articles`,
+    label: "Articles",
+    showLabelOnMobile: true,
+  },
+  {
+    href: `${baseUrl}books`,
+    label: "Livres",
+    showLabelOnMobile: true,
+  },
+  {
+    href: `${baseUrl}about`,
+    icon: "mdi:duck",
+    label: "A propos",
+    showLabelOnMobile: false,
+  },
+  {
+    href: `${baseUrl}search`,
+    icon: "mdi:search",
+    label: "Recherche",
+    showLabelOnMobile: false,
+  },
+  {
+    href: "/rss.xml",
+    icon: "mdi:rss",
+    label: "RSS",
+    showLabelOnMobile: false,
+  },
+];
 ---
 
-<header>
-  <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+<header role="banner">
+  <nav
+    class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
+    aria-label="Navigation principale"
+  >
     <div
       class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
     >
-      <a
-        href={import.meta.env.BASE_URL}
-        class="flex items-center text-2xl sm:text-2xl xs:text-3xl my-2"
-      >
-        <Icon name={SITE_ICON} class="mr-3 text-orange-500" />
-        <span
-          class="self-center font-semibold whitespace-nowrap dark:text-white"
-          >{SITE_TITLE}</span
-        >
-      </a>
-      <div class="flex items-center lg:order-2">
-        <a href={import.meta.env.BASE_URL} class={linkStyle}>
-          <Icon name="mdi:home" class="inline mr-2" />
-          <span class="hidden sm:inline">Accueil</span>
-        </a>
-        <span class="mx-2 text-orange-500">|</span>
-        <a href={import.meta.env.BASE_URL + "articles"} class={linkStyle}>
-          Articles
-        </a>
-        <span class="mx-2 text-orange-500">|</span>
-        <a href={import.meta.env.BASE_URL + "books"} class={linkStyle}>
-          Livres
-        </a>
-        <span class="mx-2 text-orange-500">|</span>
-        <a href={import.meta.env.BASE_URL + "about"} class={linkStyle}>
-          <Icon name="mdi:duck" class="inline mr-2" />
-          <span class="hidden sm:inline">A propos</span>
-        </a>
-        <span class="mx-2 text-orange-500">|</span>
-        <a href={import.meta.env.BASE_URL + "search"} class={linkStyle}>
-          <Icon name="mdi:search" class="inline mr-2" />
-          <span class="hidden sm:inline">Recherche</span>
-        </a>
-        <span class="mx-2 text-orange-500">|</span>
-        <a href="/rss.xml" class={linkStyle}>
-          <Icon name="mdi:rss" class="inline mr-2" />
-          <span class="hidden sm:inline">RSS</span>
-        </a>
+      <SiteLogo baseUrl={baseUrl} />
+
+      <div class="flex items-center lg:order-2" role="navigation">
+        {
+          navigationItems.map((item, index) => (
+            <>
+              <NavigationLink {...item} />
+              {index < navigationItems.length - 1 && (
+                <span class="mx-2 text-orange-500" aria-hidden="true">
+                  |
+                </span>
+              )}
+            </>
+          ))
+        }
       </div>
     </div>
   </nav>

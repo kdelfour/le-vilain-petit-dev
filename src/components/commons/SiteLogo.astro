@@ -1,0 +1,52 @@
+---
+import { SITE_ICON, SITE_TITLE } from "../../consts";
+import { Icon } from "astro-icon/components";
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * Props du composant SiteLogo
+ * @interface Props
+ * @extends {HTMLAttributes<'a'>} - Hérite des attributs HTML standards pour les liens
+ */
+interface Props extends HTMLAttributes<'a'> {
+  /** URL de base du site */
+  baseUrl: string;
+  /** Classes CSS additionnelles (optionnel) */
+  class?: string;
+}
+
+const {
+  baseUrl,
+  class: additionalClasses = '',
+  ...rest
+} = Astro.props;
+
+const baseStyles = [
+  // Layout et alignement
+  'flex items-center',
+  // Typographie responsive
+  'text-2xl sm:text-2xl xs:text-3xl',
+  // Espacement
+  'my-2',
+  // Classes additionnelles
+  additionalClasses
+].join(' ');
+---
+
+<a
+  href={baseUrl}
+  class={baseStyles}
+  {...rest}
+  aria-label={`Retour à l'accueil ${SITE_TITLE}`}
+>
+  <Icon 
+    name={SITE_ICON} 
+    class="mr-3 text-orange-500" 
+    aria-hidden="true"
+    role="img"
+  />
+  <span class="self-center font-semibold whitespace-nowrap dark:text-white">
+    {SITE_TITLE}
+  </span>
+</a>
+
