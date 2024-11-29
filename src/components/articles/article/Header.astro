@@ -1,0 +1,14 @@
+---
+import SubTitle from "../../commons/SubTitle.astro";
+import FormattedDate from "../../commons/FormattedDate.astro";
+
+const { title, description, pubDate } = Astro.props;
+---
+
+<div class="mt-5">
+  <SubTitle title={title} />
+  <span class="text-gray-300 text-sm mt-2">{description}</span>
+  <p class="text-gray-500 text-sm mt-2">
+    Publié le <FormattedDate date={pubDate} />
+  </p>
+</div>

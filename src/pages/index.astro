@@ -2,15 +2,14 @@
 import { Image } from "astro:assets";
 
 import Default from "../layouts/Default.astro";
-import ListPreviewArticles from "../components/articles/ListPreviewArticles.astro";
-import ListPreviewBooks from "../components/books/ListPreviewBooks.astro";
-
+import GalleryBooks from "../components/books/GalleryBooks.astro";
 import imgBanner from "../assets/images/banner.webp";
 import imgTopBannerMobile from "../assets/images/mobile-banner-1.webp";
 import imgBottomBannerMobile from "../assets/images/mobile-banner-2.webp";
 
 import Title from "../components/commons/Title.astro";
 import SubTitle from "../components/commons/SubTitle.astro";
+import GalleryArticles from "../components/articles/GalleryArticles.astro";
 ---
 
 <Default>
@@ -74,10 +73,10 @@ import SubTitle from "../components/commons/SubTitle.astro";
   </div>
 
   <Title title="Mes derniers articles" icon="mdi:chevron-triple-right" />
-  <ListPreviewArticles slice="3" />
+  <GalleryArticles slice="3" />
 
   <Title title="Mes livres" icon="mdi:chevron-triple-right" />
-  <ListPreviewBooks slice="3" />
+  <GalleryBooks slice="3" />
 
   <!-- 
   <Title title="Mes dernieres conférences" icon="mdi:chevron-triple-right" />

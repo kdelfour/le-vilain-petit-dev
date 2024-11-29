@@ -1,7 +1,7 @@
 ---
 import Default from "../../layouts/Default.astro";
 import Title from "../../components/commons/Title.astro";
-import ListPreviewArticles from "../../components/articles/ListPreviewArticles.astro";
+import GalleryArticles from "../../components/articles/GalleryArticles.astro";
 
 import { getCollection } from "astro:content";
 
@@ -22,6 +22,6 @@ const filteredArticles = allArticles.filter(
 ---
 
 <Default>
-  <Title title={`Articles avec le tag "${tag}"`} icon="mdi:tag" />
-  <ListPreviewArticles articles={filteredArticles} />
+  <Title title={`Articles sur le thème "${tag}"`} icon="mdi:tag" />
+  <GalleryArticles articles={filteredArticles} />
 </Default>

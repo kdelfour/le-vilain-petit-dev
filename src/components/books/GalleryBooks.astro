@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import PreviewBook from "./PreviewBook.astro";
+import Preview from "./book/Preview.astro";
 
 interface ListBooksProps {
   slice?: number;
@@ -16,5 +16,16 @@ const books = slice ? allBooks.slice(0, slice) : allBooks;
 ---
 
 <section class="grid md:grid-cols-3 sm:grid-cols-1 gap-4">
-  {books.map((book) => <PreviewBook book={book} />)}
+  {
+    books.map((book) => (
+      <Preview
+        cover={book.data.cover}
+        title={book.data.title}
+        author={book.data.author}
+        pubDate={book.data.pubDate}
+        isbn={book.data.isbn}
+        slug={book.slug}
+      />
+    ))
+  }
 </section>

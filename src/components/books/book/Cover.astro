@@ -1,0 +1,19 @@
+---
+const { cover, title, isbn } = Astro.props;
+---
+
+<div class="relative">
+  <img
+    src={import.meta.env.BASE_URL + cover}
+    alt={`Couverture du livre ${title}`}
+    class={"mx-auto h-auto max-w-full rounded-lg" +
+      (!isbn ? " opacity-15" : "")}
+  />
+  {
+    !isbn && (
+      <div class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-opacity-50">
+        <span class="text-white text-xl">Pas encore disponible</span>
+      </div>
+    )
+  }
+</div>

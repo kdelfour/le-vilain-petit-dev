@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import PreviewArticle from "./PreviewArticle.astro";
+import Preview from "./article/Preview.astro";
 
 interface Article {
   slug: string;
@@ -35,5 +35,15 @@ if (articles) {
 ---
 
 <section class="grid md:grid-cols-3 sm:grid-cols-1 gap-4">
-  {posts.map((post) => <PreviewArticle post={post} />)}
+  {
+    posts.map((post) => (
+      <Preview
+        slug={post.slug}
+        title={post.data.title}
+        description={post.data.description}
+        pubDate={post.data.pubDate}
+        cover={post.data.cover}
+      />
+    ))
+  }
 </section>

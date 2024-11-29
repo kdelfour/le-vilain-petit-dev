@@ -1,0 +1,13 @@
+---
+import Cover from "./Cover.astro";
+import Header from "./Header.astro";
+
+const { cover, title, author, pubDate, isbn, slug } = Astro.props;
+---
+
+<div class="flex flex-col items-center">
+  <a href={import.meta.env.BASE_URL + `books/${slug}/`} class="text-center">
+    <Cover cover={cover} title={title} isbn={isbn} />
+    <Header title={title} author={author} pubDate={pubDate} isbn={isbn} />
+  </a>
+</div>

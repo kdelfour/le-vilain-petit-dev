@@ -1,0 +1,19 @@
+---
+import SubTitle from "../../commons/SubTitle.astro";
+
+const { title, author, pubDate, isbn } = Astro.props;
+---
+
+<div class="mt-5">
+  <SubTitle title={title} />
+  <span class="text-gray-300 text-sm">{author}</span>
+  <p class="text-gray-300 text-xs">
+    {
+      !isbn ? (
+        <b class="text-orange-500">Sortie prévue en {pubDate}</b>
+      ) : (
+        <b>Publié en {pubDate}</b>
+      )
+    }
+  </p>
+</div>
