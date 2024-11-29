@@ -4,6 +4,11 @@ import Title from "../../components/commons/Title.astro";
 import GalleryArticles from "../../components/articles/GalleryArticles.astro";
 
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import type { Article } from "../../types/article";
+
+const toArticle = (entry: CollectionEntry<"articles">): Article =>
+  entry as unknown as Article;
 
 export async function getStaticPaths() {
   const allArticles = await getCollection("articles");
@@ -16,9 +21,9 @@ export async function getStaticPaths() {
 
 const tag = Astro.params.tag;
 const allArticles = await getCollection("articles");
-const filteredArticles = allArticles.filter(
-    (article) => article.data.tags && article.data.tags.includes(tag)
-  );
+const filteredArticles = allArticles
+  .filter((article) => article.data.tags && article.data.tags.includes(tag))
+  .map(toArticle);
 ---
 
 <Default>

@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<'a'> {
   /** Nom du tag */
   tag: string;
   /** Nombre d'articles associés au tag */
-  counter: number;
+  counter?: number;
   /** URL de la page de listing des articles du tag */
   href: string;
   /** Classes CSS additionnelles (optionnel) */
@@ -19,11 +19,15 @@ interface Props extends HTMLAttributes<'a'> {
 
 const { 
   tag, 
-  counter, 
+  counter = 0, 
   href,
   class: additionalClasses = '',
   ...rest
 } = Astro.props;
+
+const ariaLabel = counter > 0
+  ? `Voir les articles sur le thème "${tag}" (${counter} article${counter > 1 ? 's' : ''})`
+  : `Voir les articles sur le thème "${tag}"`;
 
 const baseStyles = [
   // Layout et alignement
@@ -61,7 +65,7 @@ const counterStyles = [
   href={href} 
   class={baseStyles}
   {...rest}
-  aria-label={`Voir les articles tagués ${tag} (${counter} article${counter > 1 ? 's' : ''})`}
+  aria-label={ariaLabel}
 >
   {tag}
   {counter > 0 && (

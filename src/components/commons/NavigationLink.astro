@@ -1,13 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
 /**
  * Props du composant NavigationLink
  * @interface Props
  * @extends {HTMLAttributes<'a'>} - Hérite des attributs HTML standards pour les liens
  */
-interface Props extends HTMLAttributes<'a'> {
+interface Props extends HTMLAttributes<"a"> {
   /** URL de destination du lien */
   href: string;
   /** Nom de l'icône Material Design Icons (optionnel) */
@@ -25,32 +25,35 @@ const {
   icon,
   label,
   showLabelOnMobile = true,
-  class: additionalClasses = '',
+  class: additionalClasses = "",
   ...rest
 } = Astro.props;
 
 // Styles de base pour tous les liens de navigation
 const baseStyles = [
   // Couleurs et états
-  'text-gray-800 dark:text-white',
-  'hover:bg-gray-50 dark:hover:bg-gray-700',
+  "text-gray-800 dark:text-white",
+  "hover:bg-gray-50 dark:hover:bg-gray-700",
   // Focus et accessibilité
-  'focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-800 focus:outline-none',
+  "focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-800 focus:outline-none",
   // Typographie et espacement
-  'font-medium rounded-lg text-sm',
-  'px-2 lg:px-5 py-1 lg:py-2.5',
-  'mr-1 lg:mr-2',
+  "font-medium rounded-lg text-sm",
+  "px-2 lg:px-5 py-1 lg:py-2.5",
+  "mr-1 lg:mr-2",
   // Classes additionnelles
-  additionalClasses
-].join(' ');
+  additionalClasses,
+].join(" ");
+
+const ariaLabel = !showLabelOnMobile ? label : undefined;
 ---
 
 <a href={href} class={baseStyles} {...rest}>
   {icon && <Icon name={icon} class="inline mr-2" aria-hidden="true" />}
-  <span 
-    class={`${!showLabelOnMobile ? 'hidden sm:inline' : ''}`}
-    aria-label={!showLabelOnMobile && label}
+  <span
+    class={`${!showLabelOnMobile ? "hidden sm:inline" : ""}`}
+    aria-label={ariaLabel}
   >
     {label}
   </span>
-</a> 
+</a>
+
