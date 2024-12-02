@@ -3,13 +3,8 @@ import { getCollection } from "astro:content";
 import Preview from "./article/Preview.astro";
 import type { Article } from "../../types/article";
 
-/**
- * Props du composant GalleryArticles
- */
 interface Props {
-  /** Liste optionnelle d'articles à afficher */
   articles?: Article[];
-  /** Nombre d'articles à afficher (optionnel) */
   slice?: number;
 }
 
