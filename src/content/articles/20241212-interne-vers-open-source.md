@@ -115,7 +115,8 @@ Le succès d'un projet open source ne se mesure pas uniquement au nombre d'étoi
 
 Pour vous aider à structurer votre démarche, voici un plan de bataille détaillé organisé en phases, avec des jalons clés et une estimation temporelle. Ce planning est modulable selon la taille et la complexité de votre projet.
 
-## Phase 1 : Préparation et évaluation (4-6 semaines)
+```
+## Phase 1 : Préparation et évaluation
 
 ### Etape 1 : Évaluation initiale
 - [ ] Analyser la maturité du projet
@@ -138,7 +139,7 @@ Pour vous aider à structurer votre démarche, voici un plan de bataille détail
 - [ ] Définir la stratégie de marque
 - [ ] Planifier la communication
 
-## Phase 2 : Mise en conformité technique (6-8 semaines)
+## Phase 2 : Mise en conformité technique 
 
 ### Etape 1 : Nettoyage du code
 - [ ] Supprimer les informations sensibles
@@ -161,7 +162,7 @@ Pour vous aider à structurer votre démarche, voici un plan de bataille détail
 - [ ] Préparer la documentation technique
 - [ ] Rédiger le Code of Conduct
 
-## Phase 3 : Préparation communautaire (4-6 semaines)
+## Phase 3 : Préparation communautaire
 
 ### Etape 1 : Mise en place des outils
 - [ ] Créer les templates d'issues
@@ -184,7 +185,7 @@ Pour vous aider à structurer votre démarche, voici un plan de bataille détail
 - [ ] Identifier les early adopters
 - [ ] Préparer la stratégie de promotion
 
-## Phase 4 : Lancement et suivi (4+ semaines)
+## Phase 4 : Lancement et suivi
 
 ### Etape 1 : Soft launch
 - [ ] Ouvrir le dépôt en lecture seule
@@ -206,6 +207,7 @@ Pour vous aider à structurer votre démarche, voici un plan de bataille détail
 - [ ] Répondre aux contributions
 - [ ] Organiser des événements réguliers
 - [ ] Publier des mises à jour régulières
+```
 
 # Conseils pour le suivi du plan
 
