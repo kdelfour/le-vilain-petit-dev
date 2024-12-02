@@ -21,8 +21,8 @@ const linkStyle =
           <Icon class="text-2xl mr-3 text-orange-500" name={SITE_ICON} />
           <span
             class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-            >{SITE_TITLE}</span
-          >
+            >{SITE_TITLE}</span>
+          {import.meta.env.MODE !== 'production' && ` - ${import.meta.env.MODE}`}
         </a>
       </div>
 
@@ -101,5 +101,4 @@ const linkStyle =
     --b2: theme("colors.orange.500");
     font-size: theme("fontSize.xs");
   }
-
 </style>

@@ -7,8 +7,6 @@ tags: ['Open source', 'Développement Web']
 cover: '20241212-interne-vers-open-source'
 ---
 
-# De l'interne à l'open source : Un guide pratique pour libérer votre code
-
 Après avoir passé plusieurs années à accompagner des équipes dans leur transition vers l'open source, j'ai constaté une idée reçue persistante : "Il suffit de mettre son code sur GitHub pour faire de l'open source". Cette vision simpliste cache une réalité bien plus complexe et passionnante. 
 
 Aujourd'hui, je souhaite partager avec vous les étapes cruciales et les considérations essentielles pour réussir cette transformation.

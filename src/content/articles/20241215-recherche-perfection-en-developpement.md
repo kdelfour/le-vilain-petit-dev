@@ -7,21 +7,19 @@ tags: ['développement', 'agilité', 'métier', 'perfectionnisme', 'bonnes prati
 cover: '20241215-recherche-perfection-en-developpement'
 ---
 
-# La perfection technique : un idéal à relativiser
-
 En tant que développeurs, nous sommes nombreux à être animés par une quête constante de perfection technique. Cette recherche d'excellence nous pousse à explorer les dernières technologies, à optimiser chaque ligne de code et à rêver d'une architecture parfaite. J'ai moi-même passé d'innombrables heures à refactorer du code qui fonctionnait déjà, convaincu que je pouvais le rendre "encore meilleur".
 
-## Le piège du perfectionnisme technique
+# Le piège du perfectionnisme technique
 
 Cette obsession de la perfection technique peut se manifester de nombreuses manières :
 
-### L'over-engineering
+## L'over-engineering
 J'ai eu l'occasion de travailler sur un projet où nous avions mis en place une architecture en microservices ultra-sophistiquée pour une entreprise qui démarrait à peine. Six mois plus tard, la maintenance de cette infrastructure complexe consommait plus de ressources que le développement de nouvelles fonctionnalités. Une architecture monolithique bien pensée aurait été largement suffisante pour les premiers mois, voire les premières années.
 
-### La paralysie de l'analyse
+## La paralysie de l'analyse
 Combien de réunions ai-je vu s'éterniser sur le choix entre deux frameworks aux différences marginales, pendant que les délais s'allongeaient ? Cette quête de la solution parfaite peut paradoxalement nous empêcher d'avancer.
 
-### Le refactoring compulsif
+## Le refactoring compulsif
 Le syndrome du "je vais juste nettoyer un peu ce code" qui se transforme en refactoring complet du module est bien connu. Si l'intention est louable, le timing n'est pas toujours approprié.
 
 ## Les coûts cachés du perfectionnisme

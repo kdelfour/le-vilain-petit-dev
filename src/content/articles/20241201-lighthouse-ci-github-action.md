@@ -7,13 +7,13 @@ tags: ["Tests automatisés", "Eco-conception", "Développement web"]
 cover: "20241201-lighthouse-ci-github-action"
 ---
 
-## Comprendre l’impact carbone du numérique
+# Comprendre l’impact carbone du numérique
 
 Quand on parle d’impact carbone, on pense souvent à des problématiques industrielles ou aux transports. Pourtant, le numérique représente aujourd’hui près de **4% des émissions mondiales de gaz à effet de serre**, un chiffre en constante augmentation. Chaque requête web, chaque octet transféré ou calcul exécuté contribue à ce bilan.
 
 Mais bonne nouvelle : en tant que développeurs, managers ou architectes, nous avons le pouvoir d’agir. Automatiser des tests pour évaluer et réduire l’impact carbone d’un projet est une démarche à la fois technique et porteuse de sens. Et cela commence par une prise de conscience : tout ce que nous créons consomme des ressources. Pourquoi ne pas s'assurer que chaque ligne de code ait le moins d'impact possible ?
 
-## Automatiser pour mesurer : pourquoi est-ce essentiel ?
+# Automatiser pour mesurer : pourquoi est-ce essentiel ?
 
 Il est tentant de penser qu’un site statique ou une application bien optimisée n’a qu’un faible impact. Mais savez-vous que la **taille moyenne d’une page web** a été multipliée par 10 en 20 ans ? Ce poids, combiné aux centaines de requêtes quotidiennes par utilisateur, finit par peser lourd, littéralement.
 
@@ -130,7 +130,7 @@ Les tests automatisés ne sont pas une finalité. Ils doivent s’inscrire dans 
 - **Fixez des objectifs communs** : Réduire l’impact de 10% à chaque sprint.
 - **Formez les équipes** : Sensibilisez-les aux bonnes pratiques d’éco-conception.
 
-## En bref
+# En bref
 
 Automatiser des tests pour maîtriser son impact carbone n’est pas seulement une question technique : c’est un engagement envers une **innovation responsable**. Cela peut sembler complexe au début, mais chaque étape franchie contribue à un web plus durable.
 

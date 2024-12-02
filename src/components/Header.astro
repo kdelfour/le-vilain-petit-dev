@@ -54,7 +54,7 @@ const navigationItems: NavigationItem[] = [
     <div
       class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
     >
-      <SiteLogo baseUrl={baseUrl} />
+      <SiteLogo baseUrl={baseUrl} /> {import.meta.env.MODE !== 'production' && ` - ${import.meta.env.MODE}`}
 
       <div class="flex items-center lg:order-2" role="navigation">
         {
