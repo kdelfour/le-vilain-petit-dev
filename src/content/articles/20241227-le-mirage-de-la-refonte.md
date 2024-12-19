@@ -1,7 +1,7 @@
 ---
 title: "Le mirage de la refonte : pourquoi repartir de zéro n'est pas toujours la solution"
 description: "Une analyse approfondie des alternatives à la refonte complète d'applications, avec stratégies concrètes et retours d'expérience pour moderniser efficacement un système existant"
-pubDate: "Dec 7 2024"
+pubDate: "Dec 27 2024"
 category: "legacy"
 tags: ["Legacy", "Refactoring", "Domain-Driven Design", "Dette technique", "Modernisation", "Optimisations"]
 cover: "20241227-le-mirage-de-la-refonte"
