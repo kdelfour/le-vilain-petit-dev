@@ -22,7 +22,13 @@ const linkStyle =
           <span
             class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
             >{SITE_TITLE}</span>
-          {import.meta.env.MODE !== 'production' && ` - ${import.meta.env.MODE}`}
+            {
+              import.meta.env.MODE !== "production" && (
+                <span class="ml-3 bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                  {import.meta.env.MODE}
+                </span>
+              )
+            }
         </a>
       </div>
 
