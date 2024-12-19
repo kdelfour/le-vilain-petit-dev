@@ -22,9 +22,15 @@ const { error } = Astro.props;
         >
           <div class="text-center">
             <div class="container px-4 mx-auto">
-              <div class="max-w-4xl mx-auto text-center">
+              <div class="mx-auto text-left">
+                <h1 class="text-4xl font-bold text-white">Erreur 500 :</h1>
                 <div>
                   {error instanceof Error ? error.message : "Erreur inconnue"}
+                </div>
+                <div class="max-h-[200px] max-w-[500px] overflow-y-auto">
+                  <p class="prose text-xs text-gray-500 text-left bg-gray-900 p-4 rounded-lg">
+                    {error instanceof Error ? error.stack : "Erreur inconnue"}
+                  </p>
                 </div>
               </div>
             </div>

@@ -229,7 +229,7 @@ Pour vous aider à structurer votre démarche, voici un plan de bataille détail
    - Suivez les blocages
    - Ajustez le plan si nécessaire
 
-# En conclusion 
+# Ce qu'il faut retenir
 
 Le passage en open source est un voyage passionnant qui demande de la préparation, de l'engagement et de la persévérance. C'est aussi une opportunité unique de participer à l'écosystème global du logiciel libre et de créer de la valeur collective.
 
