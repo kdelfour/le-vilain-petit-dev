@@ -9,7 +9,7 @@ import pagefind from "astro-pagefind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://kdelfour.github.io",
+  site: "https://levilainpetit.dev/",
   base: "",
   output: "static",
   integrations: [mdx(), sitemap(), tailwind(), icon(), pagefind()],
