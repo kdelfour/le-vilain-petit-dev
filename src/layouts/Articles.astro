@@ -7,7 +7,7 @@ import Header from "../components/articles/Header.astro";
 import Footer from "../components/articles/Footer.astro";
 import Breadcrumb from "../components/commons/Breadcrumb.astro";
 import Cover from "../components/articles/article/Cover.astro";
-import SocialShare from "../components/articles/article/SocialShare.astro";
+import SocialShareSection from "../components/articles/article/SocialShareSection.astro";
 
 type Props = CollectionEntry<"articles">["data"] & {
   headings: MarkdownHeading[];
@@ -43,7 +43,7 @@ const {
 
           <slot />
 
-          <SocialShare description={description} title={title}/> 
+          <SocialShareSection description={description} title={title}/> 
           <Footer />
         </div>
 
