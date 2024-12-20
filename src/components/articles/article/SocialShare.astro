@@ -1,0 +1,29 @@
+---
+import { SocialShare } from "astro-social-share";
+import {
+  LinkedInShareButton,
+  MediumShareButton,
+  RedditShareButton,
+} from "astro-social-share";
+
+const { title, description } = Astro.props;
+const shareButtons = [
+  LinkedInShareButton,
+  MediumShareButton,
+  RedditShareButton,
+];
+---
+
+<section
+  class="px-4 py-4 antialiased bg-gray-100 dark:bg-gray-800 rounded-lg flex flex-col sm:flex-row gap-4 mt-5"
+>
+  <span class="text-xl font-bold"
+    >Cet article vous a plu ? Alors, pourquoi ne pas le partager ?</span
+  >
+  <span class="text-sm"
+    >Faites voyager ces idées jusqu’au bout du Web en un clic. Partagez cet
+    article avec vos collègues, amis, ou même votre chat (il est sûrement
+    curieux aussi) !</span
+  >
+  <SocialShare description={description} title={title} buttons={shareButtons} />
+</section>
