@@ -18,8 +18,14 @@ export default defineConfig({
       modulePreload: {
         polyfill: true,
         resolveDependencies: (filename, deps) => {
-          console.log(filename, deps);
-          return deps.filter((dep) => !dep.includes("node_modules"));
+          // Ne précharger que les dépendances critiques
+          console.trace(filename, deps);
+          return deps.filter(
+            (dep) =>
+              !dep.includes("node_modules") &&
+              !dep.includes(".css") &&
+              !dep.includes("@astrojs")
+          );
         },
       },
       rollupOptions: {
@@ -38,10 +44,23 @@ export default defineConfig({
           assetFileNames: "assets/[name]-[hash][extname]",
         },
       },
+      minify: "terser",
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
     },
     optimizeDeps: {
       include: ["react", "react-dom"],
       exclude: ["@astrojs/image"],
+      esbuildOptions: {
+        target: "esnext",
+      },
+    },
+    ssr: {
+      noExternal: ["react-icons"],
     },
   },
 });
